@@ -1,10 +1,9 @@
-
-import NavbarCom from './components/NavbarCom/indeks';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import MainPage from './pages/MainPage';
 function App() {
   return (
     <div>
-      <NavbarCom></NavbarCom>
+      <MainPage></MainPage>
+
     </div>
   );
 }
