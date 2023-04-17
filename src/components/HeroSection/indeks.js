@@ -1,6 +1,6 @@
 import React from "react";
 import bg from "../../images/bg.jpg";
-import '../HeroSection/HeroElements.css'
+import './HeroElements.css'
 const HeroSection = () => {
   return (
     <div id='Container'>
