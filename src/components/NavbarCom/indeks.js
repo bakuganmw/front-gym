@@ -26,7 +26,7 @@ const NavbarCom = () => {
           <ul className="navbar-nav ms-auto">
           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          reservations
+          Reservations
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">rooms</a>
