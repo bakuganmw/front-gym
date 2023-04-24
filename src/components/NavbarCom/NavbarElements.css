@@ -5,9 +5,8 @@
 
 .button{
     background-color: dimgray;
-    color: yellow;
 }
-/* div.sticky{
-    background-color: white;
-} */
 
+#wrapper{
+    padding: 10px 0;
+}

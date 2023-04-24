@@ -19,9 +19,9 @@ const PricingSection = () => {
         </div>
         <div class="card-body">
           <h2 class="price-text">$5 / mo</h2>
-          <p>5 dupa</p>
-          <p>10 dupa</p>
-          <p>dupa dup</p>
+          <p>5 wejsc</p>
+          <p>10 wejsc</p>
+          <p>dupa wejsc</p>
           <button type="button" class="btn btn-outline-dark btn-lg btn-block">Take it</button>
         </div>
       </div>
@@ -34,9 +34,9 @@ const PricingSection = () => {
         </div>
         <div class="card-body">
           <h2 class="price-text">$49 / mo</h2>
-          <p>Unlimited dupa</p>
-          <p>Unlimited dupa</p>
-          <p>Unlimited dupa</p>
+          <p>Unlimited wejsc</p>
+          <p>Unlimited wejsc</p>
+          <p>Unlimited wejsc</p>
           <button type="button" class="btn btn-dark btn-lg btn-block">Take it</button>
         </div>
       </div>
@@ -49,10 +49,10 @@ const PricingSection = () => {
         </div>
         <div class="card-body">
           <h2 class="price-text">$99 / mo</h2>
-          <p>Pirority dupa</p>
-          <p>Unlimited dupa</p>
-          <p>Unlimited dupa</p>
-          <p>Unlimited dupa</p>
+          <p>Pirority wejscie</p>
+          <p>Unlimited wejscie</p>
+          <p>Unlimited wejscie</p>
+          <p>Unlimited wejscie</p>
           <button type="button" class="btn btn-dark btn-lg btn-block">Take it</button>
         </div>
       </div>
