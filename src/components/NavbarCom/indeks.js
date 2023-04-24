@@ -44,7 +44,7 @@ const NavbarCom = () => {
             </li>
           </ul>
         </div>
-          <a href='#' className="btn btn-secondary btn-lg active me-5" role="button" aria-pressed="true">Log in</a>
+          <a href='/login' className="btn btn-secondary btn-lg active me-5" role="button" aria-pressed="true">Log in</a>
       </nav>
   );
 };

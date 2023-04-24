@@ -21,7 +21,7 @@ const PricingSection = () => {
           <h2 class="price-text">$5 / mo</h2>
           <p>5 wejsc</p>
           <p>10 wejsc</p>
-          <p>dupa wejsc</p>
+          <p>1 wejsc</p>
           <button type="button" class="btn btn-outline-dark btn-lg btn-block">Take it</button>
         </div>
       </div>
@@ -57,7 +57,6 @@ const PricingSection = () => {
         </div>
       </div>
     </div>
-    
   </div>  
 
 </section>
