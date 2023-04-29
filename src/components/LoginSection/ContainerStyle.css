@@ -3,15 +3,20 @@
 }
 
 .login {
-    color: rgb(10, 10, 10);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: bold;
     font-size: 2em;
     padding-right: 1750px;
   }
 
+  .backgroundHead {
+    background-color: dimgray;
+  }
+
   .loginimage {
     padding-top: 20px;
+    padding-left: 20px;
   }
 
   .backgroundBody {
