@@ -20,12 +20,12 @@ const NavbarCom = () => {
         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a className="dropdown-item" href="#">Rooms</a>
           <a className="dropdown-item" href="#">Trainer</a>
-          <a className="dropdown-item" href="#">Session</a>
+          <a className="dropdown-item" href="/session-reservation">Session</a>
         </div>
       </li>
             <li className="nav-item">
               <a className="nav-link" href="/#contact">
-                Contact
+              Sessions
               </a>
             </li>
             <li className="nav-item">
@@ -40,7 +40,7 @@ const NavbarCom = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Sessions
+                Contact
               </a>
             </li>
           </ul>
