@@ -1,0 +1,28 @@
+#FormContainer {
+    padding-top: 30px;
+}
+
+.login {
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+    padding-right: 1750px;
+  }
+
+  .loginimage {
+    padding-top: 20px;
+  }
+
+  .backgroundBody {
+    background-color: antiquewhite;
+  }
+
+
+  .loginFooter {
+    padding-top: 340px;
+  }
+
+  .Footerbackground {
+    background-color: antiquewhite;
+  }
