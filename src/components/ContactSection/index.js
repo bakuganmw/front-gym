@@ -57,7 +57,7 @@ const ContactSectionStyle = styled.div`
 
 export default function ContactSection() {
   return (
-    
+    <div id="contact">
     <ContactSectionStyle className='backgroundContact html'>
       <div className="container">
         <SectionTitle className="headingContact" heading="contact" subheading="get in touch" />
@@ -73,6 +73,6 @@ export default function ContactSection() {
         </div>
       </div>
     </ContactSectionStyle>
-
+    </div>
   );
 }
