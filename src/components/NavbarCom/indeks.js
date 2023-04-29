@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavbarElements.css";
+import { Link } from 'react-router-dom';
 const NavbarCom = () => {
   // window.addEventListener("scroll", function () {
   //   let bar = this.document.getElementById("wrapper");
@@ -17,29 +18,29 @@ const NavbarCom = () => {
           Reservations
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a className="dropdown-item" href="#">rooms</a>
-          <a className="dropdown-item" href="#">trainer</a>
-          <a className="dropdown-item" href="#">session</a>
+          <a className="dropdown-item" href="#">Rooms</a>
+          <a className="dropdown-item" href="#">Trainer</a>
+          <a className="dropdown-item" href="#">Session</a>
         </div>
       </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/#contact">
                 Contact
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/#pricing">
                 Pricing
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                trainers
+                Trainers
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                sessions
+                Sessions
               </a>
             </li>
           </ul>
