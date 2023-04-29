@@ -16,7 +16,7 @@ const FormStyle = styled.form`
   textarea {
     width: 100%;
     font-size: 1.2rem;
-    padding: 1.2rem;
+    padding: 0.9rem;
     color: var(--gray-1);
     background-color: var(--deep-dark);
     outline: none;
