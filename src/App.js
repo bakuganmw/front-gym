@@ -5,8 +5,8 @@ import Trainer from './components/TrainerReservationSection/Trainer';
 import Form from './components/TrainerReservationSection/Form';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-
 function App() {
+
 
   return (
     <Router>

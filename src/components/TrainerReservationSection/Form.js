@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useParams } from 'react-router-dom';
 const initialData = {
   day: "",
   hour: ""
 };
 
-const Form = ({ match, ImageURL }) => {
+const Form = ({ImageURL }) => {
   const [formData, setFormData] = useState(initialData);
-
+  const { id } = useParams();
   const updateFormData = (event) => {
     setFormData({
       ...formData,
@@ -28,7 +28,7 @@ const Form = ({ match, ImageURL }) => {
   return (
     <>
       <div className="text-center">
-        <h2> Trainer :test</h2>
+        <h2> Trainer :{id}</h2>
       </div>
       <div className="product form-details">
         <div className="leftPro">
