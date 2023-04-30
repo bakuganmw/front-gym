@@ -19,7 +19,7 @@ const NavbarCom = () => {
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a className="dropdown-item" href="#">Rooms</a>
-          <a className="dropdown-item" href="#">Trainer</a>
+          <a className="dropdown-item" href="/trainer-reservation">Trainer</a>
           <a className="dropdown-item" href="/session-reservation">Session</a>
         </div>
       </li>
