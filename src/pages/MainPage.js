@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection/indeks';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import PricingSection from '../components/PricingSection';
 import ContactSection from '../components/ContactSection';
+import Map from '../components/ContactSection/Map'
 const MainPage = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const MainPage = () => {
         <HeroSection></HeroSection>
         <PricingSection></PricingSection>
         <ContactSection></ContactSection>
+        <Map></Map>
     </div>
   )
 }
