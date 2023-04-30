@@ -28,7 +28,7 @@ const Form = ({ImageURL }) => {
   return (
     <>
       <div className="text-center">
-        <h2> Trainer :{id}</h2>
+        <h2> Trainer: {id}</h2>
       </div>
       <div className="product form-details">
         <div className="leftPro">
@@ -40,7 +40,7 @@ const Form = ({ImageURL }) => {
           <form onSubmit={handleSubmit}>
             <div>
               <label>Pick a day:</label>
-              <select
+              <select 
                 onChange={(e) => updateFormData(e)}
                 placeholder="Pick a day"
                 type="text"
@@ -57,7 +57,7 @@ const Form = ({ImageURL }) => {
             </div>
             <div>
               <label>Pick an hour:</label>
-              <select
+              <select 
                 onChange={(e) => updateFormData(e)}
                 placeholder="Pick am hour"
                 type="text"
@@ -72,7 +72,7 @@ const Form = ({ImageURL }) => {
                 <option>18:00</option>
               </select>
             </div>
-            <button type="submit">Submit</button>
+            <button className="trainerbutton" type="submit">Submit</button>
             <Link to="/trainer-reservation" className="btn btn-cancle">
               Cancle
             </Link>

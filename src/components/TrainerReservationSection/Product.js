@@ -18,7 +18,7 @@ class Product extends Component {
         return (
             <div className='container'>
                 <input
-                    className="form-control"
+                    className="form-control inputTrainer"
                     type="search"
                     placeholder="Search"
                     onChange={this.searchHandler}

@@ -66,8 +66,20 @@
 img {
   max-width: 100%;
 }
-input,
+
 select {
+  display: block;
+  margin: 1em;
+  padding: 1em;
+  width: 97%;
+  border-radius: 8px;
+  border-style: none;
+  border: 1px solid #e4e6e8;
+  transition: 0.1s ease;
+}
+
+
+ .inputTrainer {
   display: block;
   margin: 1em;
   padding: 1em;

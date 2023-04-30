@@ -1,10 +1,14 @@
 import React from 'react';
 import './Reservation.css';
 import Product from './Product';
-import Form from './Form';
+
 
 function Trainer() {
   return (
+  <div>
+        <div className='backgroundHead'>
+              <a className='login' href='/'>Gym king</a>
+        </div>
         <div className="App">
           <div className="container">
             <div className="row justify-content-center">
@@ -14,6 +18,7 @@ function Trainer() {
             </div>
           </div>
         </div>
+    </div>
   );
 }
 
