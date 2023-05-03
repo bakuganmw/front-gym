@@ -21,6 +21,11 @@ function LoginPage() {
               placeholder="Enter Password"
             ></Form.Control>
           </Form.Group>
+          <Form.Group className="mb-3 rounded" controlId="password">
+          <a href="#">
+                Register
+              </a>
+          </Form.Group>
           <Button
             className="rounded"
             type="submit"
