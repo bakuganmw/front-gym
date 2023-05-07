@@ -28,6 +28,9 @@ function RegisterPage() {
               })
               .then(function (response) {
                 console.log(response);
+                if (response.status === 200) {
+                  window.location.href = '/login';
+                }
               })
               .catch(function (error) {
                 console.log(error);
