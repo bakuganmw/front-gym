@@ -17,7 +17,7 @@ function App() {
         <Route path="/register" element={<RegisterPage/>} exact />
         <Route path="/session-reservation" element={<SessionReservation />} exact />
         <Route path="/trainer-reservation" element={<Trainer />}  exact/>
-        <Route path="/:id" element={<Form />}  exact/>
+        <Route path="/trainer-reservation/:id" element={<Form />}  exact/>
       </Routes>
     </Router>
   );

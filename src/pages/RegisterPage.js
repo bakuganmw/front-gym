@@ -1,44 +1,100 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import { useState } from 'react'
 import Form from "react-bootstrap/Form";
 import FormContainer from "../components/LoginSection/FormContainer";
 import LoginFooter from "../components/LoginSection/LoginFooter";
-import { Link } from "react-router-dom";
-import { blue, red } from "@mui/material/colors";
+import {Button} from 'react-bootstrap'
+import axios from "axios";
+
 
 function RegisterPage() {
+
+    const [fname, setFname] = useState('')
+    const [email, setEmail] = useState('')
+    const [lname, setLname] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+        if (password !== confirmPassword) {
+            console.log('Passwords do not match!')
+        } else {
+            axios.put('/users/register', {
+                email: email,
+                firstName: fname,
+                lastName: lname,
+                password: password
+              })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+        }
+    }
+
   return (
     <div>
       <FormContainer>
         <h1>Sign Up</h1>
-        <Form>
+        <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3 rounded" controlId="email">
             <Form.Label>Email Address</Form.Label>
-            <Form.Control type="email"></Form.Control>
+            <Form.Control 
+            required
+            type='email'
+            placeholder='Enter email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}>
+            </Form.Control>
           </Form.Group>
           <Form.Group className="mb-3 rounded" controlId="FirstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control
-              type="FirstName"
+            required
+            type='fName'
+            placeholder='Enter name'
+            value={fname}
+            onChange={(e) => setFname(e.target.value)}
             ></Form.Control>
           </Form.Group>
           <Form.Group className="mb-3 rounded" controlId="LastName">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
-              type="LastName"
+            required
+            type='lName'
+            placeholder='Enter last name'
+            value={lname}
+            onChange={(e) => setLname(e.target.value)}
             ></Form.Control>
           </Form.Group>
           <Form.Group className="mb-3 rounded" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              type="password"
+            required
+            type='password'
+            placeholder='Enter password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            ></Form.Control>
+            </Form.Group>
+          <Form.Group className="mb-3 rounded" controlId="Confirmpassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              required
+              type='password'
+              placeholder='Confirm Password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
           <Form.Group className="mb-3 rounded" controlId="password">
           </Form.Group>
-          <Link to="/login" className="btn btn-primary">
-              Sign Up
-            </Link>
+          <Button className="rounded" type='submit' variant='primary' style={{ width: '100%', marginLeft: 0 }}>
+                    Register
+                </Button>
         </Form>
       </FormContainer>
 

@@ -16,7 +16,7 @@ const ProductList = ({ EventId, ImageURL, EventName, Category, Price }) => {
             <h2>Category: {Category}</h2>
             <h3>Price: {Price}</h3>
           </div>
-          <Link to={`/${EventName}`} className="btn trainerbutton">
+          <Link to={`/trainer-reservation/${EventName}`} className="btn trainerbutton">
             Book Now
           </Link>
         </div>
