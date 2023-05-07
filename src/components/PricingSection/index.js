@@ -15,14 +15,14 @@ const PricingSection = () => {
     <div class=" pricing-column col-lg-4 col-md-6">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Starter</h3>
+          <h3 class="card-title">Normal</h3>
         </div>
         <div class="card-body">
-          <h2 class="price-text">$5 / mo</h2>
-          <p>5 wejsc</p>
-          <p>10 wejsc</p>
-          <p>1 wejsc</p>
-          <button type="button" class="btn btn-outline-dark btn-lg btn-block">Take it</button>
+          <h2 class="price-text">150zł / mo</h2>
+          <p>unlimited entry</p>
+          <p>Various discounts in our shop</p>
+          <p>One free personal training</p>
+          {/* <button type="button" class="btn btn-outline-dark btn-lg btn-block">Take it</button> */}
         </div>
       </div>
     </div> 
@@ -30,14 +30,15 @@ const PricingSection = () => {
     <div class="pricing-column col-lg-4 col-md-6">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Advance</h3>
+          <h3 class="card-title">Student</h3>
         </div>
         <div class="card-body">
-          <h2 class="price-text">$49 / mo</h2>
-          <p>Unlimited wejsc</p>
-          <p>Unlimited wejsc</p>
-          <p>Unlimited wejsc</p>
-          <button type="button" class="btn btn-dark btn-lg btn-block">Take it</button>
+          <h2 class="price-text">200zł / mo</h2>
+          <p>Entry beatween 06:00-24:00 except for friday and weekends</p>
+          <p>1 free personal training</p>
+          <p>Free samples of proteins</p>
+          <p>Ability to freeze the membership</p>
+          {/* <button type="button" class="btn btn-dark btn-lg btn-block">Take it</button> */}
         </div>
       </div>
     </div>
@@ -48,12 +49,12 @@ const PricingSection = () => {
           <h3 class="card-title">Master</h3>
         </div>
         <div class="card-body">
-          <h2 class="price-text">$99 / mo</h2>
-          <p>Pirority wejscie</p>
-          <p>Unlimited wejscie</p>
-          <p>Unlimited wejscie</p>
-          <p>Unlimited wejscie</p>
-          <button type="button" class="btn btn-dark btn-lg btn-block">Take it</button>
+          <h2 class="price-text">250zł / mo</h2>
+          <p>unlimited entry</p>
+          <p>1 free lock</p>
+          <p>1 free personal training</p>
+          <p>Ability to freeze the membership</p>
+          {/* <button type="button" class="btn btn-dark btn-lg btn-block">Take it</button> */}
         </div>
       </div>
     </div>

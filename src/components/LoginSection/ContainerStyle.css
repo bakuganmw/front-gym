@@ -1,33 +1,45 @@
-#FormContainer {
-    padding-top: 30px;
+/* Login panel */
+.backgroundBody {
+  background-color: dimgray;
+  width: auto;
+  padding-bottom: 30px;
+}
+
+.backgroundHead {
+  padding-top: 10px;
+  background-color: var(--dark-bg);
+  position: relative;
+  height: 78px;
 }
 
 .login {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 2em;
-    padding-right: 1750px;
-  }
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2em;
+}
 
-  .backgroundHead {
-    background-color: dimgray;
-  }
+/* .loginimage {
+  padding-top: 20px;
+  padding-left: 20px;
+} */
 
-  .loginimage {
-    padding-top: 20px;
-    padding-left: 20px;
-  }
+#FormContainer {
+  margin: 100px auto;
+  padding: 30px 0;
+  width: 40%;
+  border-radius: 15px;
+  color: whitesmoke;
+  background-color: var(--gray-1);
+}
+/* login footer */
+.loginFooter {
+  color: whitesmoke;
+  margin: 0;
+}
 
-  .backgroundBody {
-    background-color: antiquewhite;
-  }
-
-
-  .loginFooter {
-    padding-top: 340px;
-  }
-
-  .Footerbackground {
-    background-color: antiquewhite;
-  }
+.Footerbackground {
+  /* background-color: antiquewhite; */
+  padding-top: 100px;
+  background-color: dimgray;
+}

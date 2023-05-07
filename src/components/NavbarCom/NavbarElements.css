@@ -1,13 +1,11 @@
-#brandName{
-    font-size: 200%;
+#wrapper {
+  padding: 10px 0;
 }
 
-
-.button{
-    background-color: dimgray;
+#brandName {
+  font-size: 200%;
 }
 
-#wrapper{
-    padding: 10px 0;
+.button {
+  background-color: dimgray;
 }
-
