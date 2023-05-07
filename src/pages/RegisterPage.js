@@ -14,13 +14,13 @@ function RegisterPage() {
     const [lname, setLname] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-
+  
     const submitHandler = (e) => {
         e.preventDefault()
         if (password !== confirmPassword) {
             console.log('Passwords do not match!')
         } else {
-            axios.put('/users/register', {
+            axios.put('http://localhost:8080/users/register', {
                 email: email,
                 firstName: fname,
                 lastName: lname,
