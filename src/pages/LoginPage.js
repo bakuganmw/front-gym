@@ -6,6 +6,7 @@ import LoginFooter from "../components/LoginSection/LoginFooter";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import axios from "axios";
+import { Buffer } from 'buffer';
 
 function LoginPage() {
 
@@ -13,23 +14,27 @@ function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+
     const submitHandler = (e) => {
-        e.preventDefault()
-            axios.post('http://localhost:8080/login', {
-                email: email,
-                password: password
-              })
-              .then(function (response) {
-                console.log(response);
-                if (response.status === 200) {
-                  window.location.href = '/';
-                }
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
-        
-    }
+      e.preventDefault();
+      
+      const encodedHeader = Buffer.from(email+":"+password).toString('base64');
+      const authHeader = 'Basic ' + encodedHeader;
+      
+      axios.post('http://localhost:8080/login', {}, {
+        headers: {
+          Authorization: authHeader
+        }
+      })
+        .then(function (response) {
+          console.log(response);
+          console.log(authHeader);
+        })
+        .catch(function (error) {
+          console.log(error);
+          console.log(authHeader);
+        });
+    };
 
   return (
     <div>
