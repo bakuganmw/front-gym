@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavbarElements.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 const NavbarCom = () => {
   // window.addEventListener("scroll", function () {
   //   let bar = this.document.getElementById("wrapper");
@@ -14,37 +14,36 @@ const NavbarCom = () => {
       <div className="collaps navbar-collapse me-5">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
+            <button
+              className="nav-link dropdown-toggle bg-dark"
               id="navbarDropdownMenuLink"
-              role="button"
               data-toggle="dropdown"
+              type="button"
               aria-haspopup="true"
               aria-expanded="false"
             >
               Reservations
-            </a>
+            </button>
             <div
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              <a className="dropdown-item" href="#">
+              {/* <a className="dropdown-item" href="#">
                 Rooms
-              </a>
+              </a> */}
               <a className="dropdown-item" href="/trainer-reservation">
                 Trainer
               </a>
-              <a className="dropdown-item" href="/session-reservation">
+              {/* <a className="dropdown-item" href="/session-reservation">
                 Session
-              </a>
+              </a> */}
             </div>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="#">
               Sessions
             </a>
-          </li>
+          </li> */}
           <li className="nav-item">
             <a className="nav-link" href="/#pricing">
               Pricing
@@ -55,11 +54,11 @@ const NavbarCom = () => {
               Gyms
             </a>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="#">
               Trainers
             </a>
-          </li>
+          </li> */}
           <li className="nav-item">
             <a className="nav-link" href="/#contact">
               Contact

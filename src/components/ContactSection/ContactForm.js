@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const FormStyle = styled.form`
   width: 100%;
-  
+
   .form-group {
     width: 100%;
     margin-bottom: 2rem;
   }
   label {
     font-size: 1.2rem;
-    color: #BCB4B4;
+    color: #bcb4b4;
   }
   input,
   textarea {
@@ -28,7 +28,7 @@ const FormStyle = styled.form`
     min-height: 250px;
     resize: vertical;
   }
-  button[type='submit'] {
+  button[type="submit"] {
     background-color: var(--gray-1);
     color: var(--black);
     font-size: 1rem;
@@ -42,9 +42,9 @@ const FormStyle = styled.form`
 `;
 
 export default function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   return (
     <>
       <FormStyle>

@@ -6,6 +6,10 @@
   font-size: 200%;
 }
 
+#navbarDropdownMenuLink {
+  border: none;
+}
+
 .button {
   background-color: dimgray;
 }

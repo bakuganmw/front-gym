@@ -40,6 +40,8 @@
 
 .Footerbackground {
   /* background-color: antiquewhite; */
+  height: 31vh;
+  width: auto;
   padding-top: 100px;
   background-color: dimgray;
 }
