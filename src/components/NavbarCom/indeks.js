@@ -2,10 +2,8 @@ import React from "react";
 import "./NavbarElements.css";
 // import { Link } from "react-router-dom";
 const NavbarCom = () => {
-  // window.addEventListener("scroll", function () {
-  //   let bar = this.document.getElementById("wrapper");
-  //   bar.classList.toggle("sticky", window.scrollY > 0);
-  // });
+  let x = document.cookie;
+  console.log(x.valueOf);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="wrapper">
       <a className="navbar-brand ms-5" id="brandName" href="/">

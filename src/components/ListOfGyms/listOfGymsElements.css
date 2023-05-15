@@ -1,0 +1,27 @@
+.wrapper {
+  padding-top: 30px;
+  position: absolute;
+}
+
+.list {
+  list-style-type: none;
+  position: inherit;
+  left: 20vw;
+  width: 130vh;
+}
+.listItem {
+  border-radius: 20px;
+  border: solid grey;
+  margin: 30px auto;
+  padding: 30px;
+  width: 80%;
+}
+
+.para {
+  display: inline-block;
+  margin: auto 30px;
+}
+
+.description {
+  float: right;
+}
