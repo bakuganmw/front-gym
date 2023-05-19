@@ -26,7 +26,7 @@ p {
 }
 
 .section-heading {
-  font-size: 3rem;
+  font-size: 3.8rem;
   line-height: 1.5;
   font-weight: 900;
   color: white;
@@ -73,6 +73,11 @@ p {
   padding: 3% 2%;
 }
 
+.pricing-column .card {
+  height: 100%;
+}
+
+
 .price-text {
   font-size: 3rem;
   line-height: 1.5;
@@ -82,15 +87,4 @@ p {
 .card-title {
   font-size: 1.5rem;
   font-weight: 900;
-}
-
-@media (max-width: 992px) {
-  #title {
-    text-align: center;
-  }
-
-  .iphone {
-    position: static;
-    transform: rotate(0);
-  }
 }
