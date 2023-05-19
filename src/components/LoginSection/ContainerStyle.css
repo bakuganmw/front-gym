@@ -3,6 +3,8 @@
   background-color: dimgray;
   width: auto;
   padding-bottom: 30px;
+  min-height: 100vh;
+  position: relative; /* Added position relative */
 }
 
 .backgroundHead {
@@ -19,11 +21,6 @@
   font-size: 2em;
 }
 
-/* .loginimage {
-  padding-top: 20px;
-  padding-left: 20px;
-} */
-
 #FormContainer {
   margin: 100px auto;
   padding: 30px 0;
@@ -32,6 +29,7 @@
   color: whitesmoke;
   background-color: var(--gray-1);
 }
+
 /* login footer */
 .loginFooter {
   color: whitesmoke;
@@ -39,9 +37,23 @@
 }
 
 .Footerbackground {
-  /* background-color: antiquewhite; */
-  height: 31vh;
   width: auto;
   padding-top: 100px;
   background-color: dimgray;
+  position: absolute; /* Changed to position absolute */
+  bottom: 0; /* Positioned at the bottom */
+  width: 100%; /* Full width */
+  text-align: center; /* Center-align the footer content */
+}
+
+.FooterContainer {
+  position: relative;
+  margin-top: auto;
+  text-align: center;
+  background-color: inherit;
+}
+
+.loginFooterWrapper {
+  padding: 20px;
+  background-color: inherit;
 }
