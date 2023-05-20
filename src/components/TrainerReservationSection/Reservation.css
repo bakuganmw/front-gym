@@ -8,11 +8,10 @@
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 20px 20px;
 }
 .productcontainer {
-  display: flex;
+  display: inline;
   flex-wrap: wrap;
   justify-content: space-around;
 }
