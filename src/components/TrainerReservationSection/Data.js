@@ -2,7 +2,7 @@ export const Data = [
   {
     EventId: "1",
     ImageURL: "giphy/12.gif",
-    EventName: "Andrzej",
+    EventName: "Monika",
     Category: "Kalistenika ",
     Price: "23"
   },
@@ -17,27 +17,27 @@ export const Data = [
     EventId: "3",
     ImageURL: "giphy/3.gif",
     EventName: "Jerzy",
-    Category: "Ciężary",
+    Category: "Kalistenika",
     Price: "190"
   },
   {
     EventId: "4",
     ImageURL: "giphy/4.gif",
-    EventName: "Jan",
-    Category: "Kalistenika",
+    EventName: "Anna",
+    Category: "Fitness",
     Price: "42"
   },
   {
     EventId: "5",
     ImageURL: "giphy/11.gif",
-    EventName: "Walduś",
+    EventName: "Ola",
     Category: "Full body",
     Price: "100"
   },
   {
     EventId: "6",
     ImageURL: "giphy/6.gif",
-    EventName: "Karolek",
+    EventName: "Natalia",
     Category: "trójbój",
     Price: "252"
   },

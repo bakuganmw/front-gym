@@ -13,25 +13,25 @@ class Product extends Component {
     }
 
     render() {
-
-        const { ProductData, term } = this.state
+        const { ProductData, term } = this.state;
         return (
-            <div className='container'>
-                <input
-                    className="form-control inputTrainer"
-                    type="search"
-                    placeholder="Search"
-                    onChange={this.searchHandler}
-                />
-                <div className="productcontainer">
-                    {ProductData.filter(searchingFor(term)).map(({ EventId, ...otherprops }) => (
-                        <ProductList key={EventId} {...otherprops}
-                        />
-                    ))}
+          <div className='container'>
+            <input
+              className="form-control inputTrainer"
+              type="search"
+              placeholder="Search"
+              onChange={this.searchHandler}
+            />
+            <div className="row">
+              {ProductData.filter(searchingFor(term)).map(({ EventId, ...otherprops }) => (
+                <div className="col-md-4" key={EventId}>
+                  <ProductList {...otherprops} />
                 </div>
+              ))}
             </div>
-        )
-    }
+          </div>
+        );
+      }
 }
 export default Product
 
