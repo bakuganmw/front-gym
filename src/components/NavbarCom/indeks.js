@@ -2,8 +2,27 @@ import React from "react";
 import "./NavbarElements.css";
 // import { Link } from "react-router-dom";
 const NavbarCom = () => {
-  let x = document.cookie;
-  console.log(x.valueOf);
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  const authHeader = getCookie("authHeader");
+  function logout(){
+    document.cookie ="authHeader=; expires=" + new Date("1990-03-25");
+    window.location.reload();
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="wrapper">
       <a className="navbar-brand ms-5" id="brandName" href="/">
@@ -64,7 +83,31 @@ const NavbarCom = () => {
           </li>
         </ul>
       </div>
-      <a
+      <div>
+        {
+          authHeader == null?
+        <ul className= "navbar-nav ms-auto"><li className="nav-item dropdown">
+        <button
+          className="nav-link dropdown-toggle bg-dark"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Profile
+        </button>
+        <div
+          className="dropdown-menu"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <button className="dropdown-item" onClick= {logout} href="/">
+            logout
+          </button>
+        </div>
+      </li></ul>
+        :
+        <a
         href="/login"
         className="btn btn-secondary btn-lg active me-5"
         role="button"
@@ -72,6 +115,11 @@ const NavbarCom = () => {
       >
         Log in
       </a>
+
+        }
+      
+      </div>
+      
     </nav>
   );
 };
