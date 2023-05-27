@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <div id="Container">
       <div id="imgContainer">
-        <img id="image" src={bg}></img>
+        <img id="image" src={bg} alt=""></img>
       </div>
     </div>
   );
