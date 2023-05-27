@@ -19,10 +19,10 @@ const NavbarCom = () => {
   }
 
   const authHeader = getCookie("authHeader");
-  function logout(){
-    document.cookie ="authHeader=; expires=" + new Date("1990-03-25");
-    window.location.reload();
-  }
+  // function logout(){
+  //   document.cookie ="authHeader=; expires=" + new Date("1990-03-25");
+  //   window.location.reload();
+  // }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="wrapper">
       <a className="navbar-brand ms-5" id="brandName" href="/">
@@ -101,7 +101,9 @@ const NavbarCom = () => {
           className="dropdown-menu"
           aria-labelledby="navbarDropdownMenuLink"
         >
-          <button className="dropdown-item" onClick= {logout} href="/">
+          <button className="dropdown-item" 
+          // onClick= {logout} 
+          href="/">
             logout
           </button>
         </div>
