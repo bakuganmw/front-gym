@@ -6,6 +6,7 @@ import Form from './components/TrainerReservationSection/Form';
 import RegisterPage from './pages/RegisterPage';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GymPage from './pages/GymPage';
+import UserPanel from './components/UserPanel/UserPanel';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/trainer-reservation" element={<Trainer />}  exact/>
         <Route path="/gyms" element={<GymPage />}  exact/>
         <Route path="/trainer-reservation/:id" element={<Form />}  exact/>
+        <Route path="/my-profile" element={<UserPanel />} exact />
       </Routes>
     </Router>
   );
