@@ -25,14 +25,14 @@ const NavbarCom = () => {
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="wrapper">
-      <a className="navbar-brand ms-5" id="brandName" href="/">
+      <a className="navbar-brand mx-5 pe-5" id="brandName" href="/">
         Gym king
       </a>
-      <div className="collaps navbar-collapse me-5">
-        <ul className="navbar-nav ms-auto">
+      <div className="collaps navbar-collapse navchoice">
+        <ul className="navbar-nav mx-5">
           <li className="nav-item dropdown">
             <button
-              className="nav-link dropdown-toggle bg-dark"
+              className="nav-link dropdown-toggle navOption bg-dark"
               id="navbarDropdownMenuLink"
               data-toggle="dropdown"
               type="button"
@@ -56,28 +56,28 @@ const NavbarCom = () => {
               </a> */}
             </div>
           </li>
-          {/* <li className="nav-item">
-            <a className="nav-link" href="#">
+          <li className="nav-item">
+            <a className="nav-link navOption" href="#">
               Sessions
             </a>
-          </li> */}
+          </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#pricing">
+            <a className="nav-link navOption" href="/#pricing">
               Pricing
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/gyms">
+            <a className="nav-link navOption" href="/gyms">
               Gyms
             </a>
           </li>
-          {/* <li className="nav-item">
-            <a className="nav-link" href="#">
+          <li className="nav-item">
+            <a className="nav-link navOption" href="#">
               Trainers
             </a>
-          </li> */}
+          </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#contact">
+            <a className="nav-link navOption" href="/#contact">
               Contact
             </a>
           </li>
@@ -113,7 +113,7 @@ const NavbarCom = () => {
         ) : (
           <a
             href="/login"
-            className="btn btn-secondary btn-lg active me-5"
+            className="btn button btn-lg  me-5"
             role="button"
             aria-pressed="true"
           >

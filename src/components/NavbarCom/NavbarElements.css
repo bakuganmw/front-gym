@@ -6,7 +6,8 @@
 }
 
 #brandName {
-  font-size: 200%;
+  font-size: 220%;
+  color: #FFD232;
 }
 
 #navbarDropdownMenuLink {
@@ -14,5 +15,16 @@
 }
 
 .button {
-  background-color: dimgray;
+  background-color: #C90815 !important;
+  color: #EEEEEE !important;
 }
+
+.navchoice {
+  justify-content: space-around;
+}
+
+.navOption{
+  color: #EEEEEE !important;
+  font-size: 21px !important;
+}
+
