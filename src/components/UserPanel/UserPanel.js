@@ -10,37 +10,75 @@ function UserPanel() {
         let decodedCookie = decodeURIComponent(document.cookie);
         let ca = decodedCookie.split(";");
         for (let i = 0; i < ca.length; i++) {
-          let c = ca[i];
-          while (c.charAt(0) === " ") {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-          }
+            let c = ca[i];
+            while (c.charAt(0) === " ") {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
         }
         return "";
-      }
-    
-      const authHeader = getCookie("authHeader");
-    
-      React.useEffect(() => {
+    }
+    const authHeader = getCookie("authHeader");
+
+    React.useEffect(() => {
         axios
-          .get("http://localhost:8080/users/1", {
-            headers: {
-              Authorization: authHeader,
-            },
-          })
-          .then((response) => {
-            setName(response.data.firstName);
-            setEmail(response.data.email);
-            setlName(response.data.lastName);
-          })
-          .catch((err) => console.log(err));
-      }, [authHeader]);
+            .get("http://localhost:8080/users/current", {
+                headers: {
+                    Authorization: authHeader,
+                },
+            })
+            .then((response) => {
+                setUserId(response.data.id);
+                axios
+
+                    .get("http://localhost:8080/users/" + response.data.id, {
+                        headers: {
+                            Authorization: authHeader,
+                        },
+                    })
+                    .then((response) => {
+                        setName(response.data.firstName);
+                        setEmail(response.data.email);
+                        setlName(response.data.lastName);
+                    })
+            })
+            .catch((err) => console.log(err));
+    }, [authHeader]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        if (password !== confirmPassword) {
+            console.log('Passwords do not match!');
+        } else {
+            axios.patch('http://localhost:8080/users/' + userId,
+                [
+                    { "op": "replace", "path": "/firstName", "value": name },
+                    { "op": "replace", "path": "/lastName", "value": lname },
+                    { "op": "replace", "path": "/email", "value": email },
+                    { "op": "replace", "path": "/password", "value": password }
+                ],
+                {
+                    headers: {
+                        Authorization: authHeader
+                    }
+                }
+            )
+                .then(function (response) {
+                    console.log(password);
+                    if (response.status === 200) {
+                        window.location.href = '/login';
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    };
 
 
-
-
+    const [userId, setUserId] = useState('0')
     const [name, setName] = useState('')
     const [lname, setlName] = useState('')
     const [email, setEmail] = useState('')
@@ -51,7 +89,7 @@ function UserPanel() {
         <Row className='userPanel'>
             <Col md={3}>
                 <h2>User Profile</h2>
-                <Form>
+                <Form onSubmit={submitHandler}>
 
                     <Form.Group className="mb-3 rounded" controlId='name'>
                         <Form.Label>Name</Form.Label>

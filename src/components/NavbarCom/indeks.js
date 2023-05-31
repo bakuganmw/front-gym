@@ -104,9 +104,9 @@ const NavbarCom = () => {
                 <a className="dropdown-item" href="/my-profile">
                   My profile
                 </a>
-                <button className="dropdown-item" onClick={logout} href="/">
+                <a className="dropdown-item" onClick={logout} href="/">
                   logout
-                </button>
+                </a>
               </div>
             </li>
           </ul>
