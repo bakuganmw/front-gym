@@ -1,15 +1,54 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-
+import axios from "axios";
+import "./UserPanel.css"
 
 function UserPanel() {
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+    
+      const authHeader = getCookie("authHeader");
+    
+      React.useEffect(() => {
+        axios
+          .get("http://localhost:8080/users/1", {
+            headers: {
+              Authorization: authHeader,
+            },
+          })
+          .then((response) => {
+            setName(response.data.firstName);
+            setEmail(response.data.email);
+            setlName(response.data.lastName);
+          })
+          .catch((err) => console.log(err));
+      }, [authHeader]);
+
+
+
+
     const [name, setName] = useState('')
+    const [lname, setlName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
     return (
-        <Row>
+        <Row className='userPanel'>
             <Col md={3}>
                 <h2>User Profile</h2>
                 <Form>
@@ -22,6 +61,18 @@ function UserPanel() {
                             placeholder='Enter name'
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                        >
+                        </Form.Control>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3 rounded" controlId='lname'>
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control
+                            required
+                            type='lname'
+                            placeholder='Enter last name'
+                            value={lname}
+                            onChange={(e) => setlName(e.target.value)}
                         >
                         </Form.Control>
                     </Form.Group>
