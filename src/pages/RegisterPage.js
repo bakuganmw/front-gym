@@ -37,11 +37,16 @@ function RegisterPage() {
               });
         }
     }
-
+const registerStyle = {
+  width: "100%", 
+  marginLeft: 0, 
+  backgroundColor:"#C90815",
+  border:"#C90815",
+}
   return (
     <div>
       <FormContainer>
-        <h1>Sign Up</h1>
+        <h1 className="mb-4">Sign Up</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3 rounded" controlId="email">
             <Form.Label>Email Address</Form.Label>
@@ -95,7 +100,7 @@ function RegisterPage() {
           </Form.Group>
           <Form.Group className="mb-3 rounded" controlId="password">
           </Form.Group>
-          <Button className="rounded" type='submit' variant='primary' style={{ width: '100%', marginLeft: 0 }}>
+          <Button className="rounded mt-4" type='submit' variant='primary' style={registerStyle}>
                     Register
                 </Button>
         </Form>

@@ -1,6 +1,6 @@
 /* Login panel */
 .backgroundBody {
-  background-color: dimgray;
+  background-color: #FFD232;
   width: auto;
   padding-bottom: 30px;
   min-height: 100vh;
@@ -14,8 +14,8 @@
   height: 78px;
 }
 
-.login {
-  color: rgb(255, 255, 255);
+#login {
+  color: #FFD232;
   text-decoration: none;
   font-weight: bold;
   font-size: 2em;
@@ -23,23 +23,23 @@
 
 #FormContainer {
   margin: 100px auto;
-  padding: 30px 0;
+  padding: 60px 0;
   width: 40%;
   border-radius: 15px;
   color: whitesmoke;
-  background-color: var(--gray-1);
+  background-color: var(--dark-bg);
 }
 
 /* login footer */
 .loginFooter {
-  color: whitesmoke;
+  color: var(--dark-bg);
   margin: 0;
 }
 
 .Footerbackground {
   width: auto;
   padding-top: 100px;
-  background-color: dimgray;
+  background-color: #FFD232;
   position: absolute; /* Changed to position absolute */
   bottom: 0; /* Positioned at the bottom */
   width: 100%; /* Full width */
