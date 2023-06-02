@@ -101,12 +101,12 @@ const NavbarCom = () => {
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <button className="dropdown-item" href="/">
+                <a className="dropdown-item" href="/my-profile">
                   My profile
-                </button>
-                <button className="dropdown-item" onClick={logout} href="/">
+                </a>
+                <a className="dropdown-item" onClick={logout} href="/">
                   logout
-                </button>
+                </a>
               </div>
             </li>
           </ul>
