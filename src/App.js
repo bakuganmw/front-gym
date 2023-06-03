@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GymPage from './pages/GymPage';
 import UserPanelPage from './pages/UserPanelPage';
+import TrainerSchedulePage from './pages/TrainerSchedulePage';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/gyms" element={<GymPage />}  exact/>
         <Route path="/trainer-reservation/:id" element={<Form />}  exact/>
         <Route path="/my-profile" element={<UserPanelPage />} exact />
+        <Route path="/time-schedule" element={<TrainerSchedulePage />} exact />
       </Routes>
     </Router>
   );
