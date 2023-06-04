@@ -1,3 +1,7 @@
+html {
+  background-color: #ffca0a;
+}
+
 .wrapper {
   padding-top: 30px;
   position: absolute;
@@ -6,20 +10,27 @@
 .list {
   list-style-type: none;
   position: inherit;
-  left: 20vw;
-  width: 130vh;
+  left: 3vw;
+  width: 180vh;
 }
 .listItem {
+  background-color: #28242c;
   border-radius: 20px;
   border: solid grey;
   margin: 30px auto;
-  padding: 30px;
+  padding: 50px 30px;
   width: 80%;
 }
 
 .para {
   display: inline-block;
-  margin: auto 30px;
+  /* height: 200px; */
+  width: 200px;
+  color: #eeeeee;
+}
+
+.location {
+  float: left;
 }
 
 .description {

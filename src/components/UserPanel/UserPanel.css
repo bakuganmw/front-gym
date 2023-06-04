@@ -1,3 +1,13 @@
-.userPanel{
-    padding-left: 40%;
+.userPanel {
+  padding: 5% 40%;
+  background-color: #ffca0a;
+}
+
+.form {
+  background-color: #28242c;
+  width: 60vh;
+}
+
+.text {
+  color: #eeeeee;
 }

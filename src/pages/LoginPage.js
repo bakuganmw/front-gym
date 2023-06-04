@@ -42,14 +42,15 @@ function LoginPage() {
       .catch(function (error) {
         console.log(error);
         console.log(authHeader);
+        alert("incorrect login or password");
       });
   };
-const registerStyle = {
-  width: "100%", 
-  marginLeft: 0, 
-  backgroundColor:"#C90815",
-  border:"#C90815",
-}
+  const registerStyle = {
+    width: "100%",
+    marginLeft: 0,
+    backgroundColor: "#C90815",
+    border: "#C90815",
+  };
   return (
     <div>
       <FormContainer>
@@ -78,11 +79,7 @@ const registerStyle = {
           <Form.Group className="mb-3 rounded" controlId="password">
             <Link to="/register">Register</Link>
           </Form.Group>
-          <Button
-            className="rounded "
-            type="submit"
-            style={ registerStyle }
-          >
+          <Button className="rounded " type="submit" style={registerStyle}>
             Sign In
           </Button>
         </Form>

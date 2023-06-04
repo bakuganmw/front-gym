@@ -29,9 +29,9 @@ const NavbarCom = () => {
         Gym king
       </a>
       <div className="collaps navbar-collapse navchoice">
-        <ul className="navbar-nav mx-5">
+        <ul className="navbar-nav mx-1">
           <li className="nav-item dropdown">
-            <button
+            {authHeader !== "" ?(<div><button
               className="nav-link dropdown-toggle navOption bg-dark"
               id="navbarDropdownMenuLink"
               data-toggle="dropdown"
@@ -54,7 +54,8 @@ const NavbarCom = () => {
               {/* <a className="dropdown-item" href="/session-reservation">
                 Session
               </a> */}
-            </div>
+            </div></div>):(<div></div>)}
+            
           </li>
           <li className="nav-item">
             <a className="nav-link navOption" href="#">
@@ -88,7 +89,7 @@ const NavbarCom = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item dropdown">
               <button
-                className="nav-link dropdown-toggle bg-dark"
+                className="nav-link dropdown-toggle bg-dark me-5"
                 id="navbarDropdownMenuLink"
                 data-toggle="dropdown"
                 type="button"

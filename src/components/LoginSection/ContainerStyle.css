@@ -1,6 +1,6 @@
 /* Login panel */
 .backgroundBody {
-  background-color: #FFD232;
+  background-color: #ffca0a;
   width: auto;
   padding-bottom: 30px;
   min-height: 100vh;
@@ -15,7 +15,7 @@
 }
 
 #login {
-  color: #FFD232;
+  color: #ffca0a;
   text-decoration: none;
   font-weight: bold;
   font-size: 2em;
@@ -39,7 +39,7 @@
 .Footerbackground {
   width: auto;
   padding-top: 100px;
-  background-color: #FFD232;
+  background-color: #ffca0a;
   position: absolute; /* Changed to position absolute */
   bottom: 0; /* Positioned at the bottom */
   width: 100%; /* Full width */
