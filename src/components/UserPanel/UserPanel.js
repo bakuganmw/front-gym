@@ -88,8 +88,8 @@ function UserPanel() {
 
     return (
         <Row className='userPanel'>
-            <Col md={3}>
-                <h2>User Profile</h2>
+            <Col md={3} className="form">
+                <h2 className="my-5 text">User Profile</h2>
                 <Form onSubmit={submitHandler}>
 
                     <Form.Group className="mb-3 rounded" controlId='name'>

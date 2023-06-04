@@ -170,7 +170,7 @@ const TrainerSchedule = () => {
 
 				<div className='timezone__wrapper'>
 					{schedule.map((sch, id) => (
-						<div className='form' key={id}>
+						<div className='formTrainer' key={id}>
 							<p>{sch.day}</p>
 							<div className='select__wrapper'>
 								<label htmlFor='startTime'>Start Time</label>
