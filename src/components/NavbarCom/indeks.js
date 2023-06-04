@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./NavbarElements.css";
+import axios from "axios";
 // import { Link } from "react-router-dom";
 const NavbarCom = () => {
   function getCookie(cname) {
@@ -18,6 +19,21 @@ const NavbarCom = () => {
     return "";
   }
 
+  function getRole() {
+    axios
+      .get("http://localhost:8080/users/current", {
+        headers: {
+          Authorization: authHeader,
+        },
+      })
+      .then((response) => {
+        setRole(response.data.role);
+        console.log(response.data.role);
+      })
+      .catch((err) => console.log(err));
+    return role;
+  }
+  const [role, setRole] = useState('')
   const authHeader = getCookie("authHeader");
   function logout() {
     document.cookie = "authHeader=; expires=" + new Date("1990-03-25");
@@ -104,6 +120,11 @@ const NavbarCom = () => {
                 <a className="dropdown-item" href="/my-profile">
                   My profile
                 </a>
+                {getRole() === 'USER' && (
+                  <a className="dropdown-item" href="/time-schedule">
+                    My schedule
+                  </a>
+                )}
                 <a className="dropdown-item" onClick={logout} href="/">
                   logout
                 </a>

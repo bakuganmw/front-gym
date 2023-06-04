@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const FormStyle = styled.form`
   width: 100%;
@@ -42,12 +43,51 @@ const FormStyle = styled.form`
 `;
 
 export default function ContactForm() {
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === " ") {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+const authHeader = getCookie("authHeader");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+        axios.put('http://localhost:8080/contact-us', {
+            title: "Formularz kontaktowy",
+            description: message,
+            recipient: name,
+            email: email
+          })
+          .then(function (response) {
+            console.log(response);
+            if (response.status === 200) {
+              window.location.href = '/';
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+}
+  
   return (
     <>
-      <FormStyle>
+      <FormStyle onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="name">
             Your Name

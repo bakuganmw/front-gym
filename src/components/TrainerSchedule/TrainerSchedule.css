@@ -1,0 +1,104 @@
+
+.time_button {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	padding: 10px;
+}
+
+.dashboard__main {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.dashboard__heading {
+	display: flex;
+	margin-bottom: 25px;
+	align-items: center;
+	justify-content: space-between;
+}
+.timezone__wrapper {
+	width: 50%;
+}
+.saveBtn__container {
+	width: 100%;
+	padding: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.saveBtn__container button {
+	width: 200px;
+	padding: 15px;
+	background-color: #faeab1;
+}
+.form {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 30px;
+}
+.select__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15px;
+}
+select {
+	padding: 10px;
+	min-width: 150px;
+}
+.profile {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+table {
+	border: 1px solid #ddd;
+	width: 100%;
+	border-collapse: collapse;
+}
+tr,
+td {
+	border: 1px solid #ddd;
+	padding: 20px;
+}
+.bookContainer {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 30px;
+}
+.booking__form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 80%;
+	margin: 0 auto;
+}
+.bookTitle {
+	margin-bottom: 30px;
+	color: #c58940;
+}
+.bookingBtn {
+	margin-top: 20px;
+	background-color: #c58940;
+	color: #fff;
+}
+.errorContainer {
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	padding: 30px;
+	justify-content: center;
+	flex-direction: column;
+}
