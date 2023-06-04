@@ -23,10 +23,10 @@
 
 #FormContainer {
   margin: 100px auto;
-  padding: 60px 0;
+  padding: 40px 0;
   width: 40%;
   border-radius: 15px;
-  color: whitesmoke;
+  color: #EEEEEE;
   background-color: var(--dark-bg);
 }
 
