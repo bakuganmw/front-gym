@@ -1,23 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./TrainerSchedule.css"
+import axios from "axios";
 
 const TrainerSchedule = () => {
 
+	function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === " ") {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+	const authHeader = getCookie("authHeader");
+
 	 const time = [
         { id: "null", t: "Select" },
-        { id: "7", t: "7:00am" },
-        { id: "8", t: "8:00am" },
-        { id: "9", t: "9:00am" },
-        { id: "10", t: "10:00am" },
-        { id: "11", t: "11:00am" },
-        { id: "12", t: "12:00pm" },
-        { id: "13", t: "13:00pm" },
-        { id: "14", t: "14:00pm" },
-        { id: "15", t: "15:00pm" },
-        { id: "16", t: "16:00pm" },
-        { id: "17", t: "17:00pm" },
-        { id: "18", t: "18:00pm" },
-        { id: "19", t: "19:00pm" },
+        { id: "7", t: "07:00" },
+        { id: "8", t: "08:00" },
+        { id: "9", t: "09:00" },
+        { id: "10", t: "10:00" },
+        { id: "11", t: "11:00" },
+        { id: "12", t: "12:00" },
+        { id: "13", t: "13:00" },
+        { id: "14", t: "14:00" },
+        { id: "15", t: "15:00" },
+        { id: "16", t: "16:00" },
+        { id: "17", t: "17:00" },
+        { id: "18", t: "18:00" },
+        { id: "19", t: "19:00" },
     ];
 
 	const [schedule, setSchedule] = useState([
@@ -37,6 +56,111 @@ const TrainerSchedule = () => {
 		list[id][name] = value;
 		setSchedule(list);
 	};
+
+    const submitHandler = (e) => {
+
+        for(let i = 0; i < schedule.length; i++) {
+			let startTime = schedule[i].startTime.substring(0, schedule[i].startTime.indexOf(":"));
+			let hourStart = parseInt(startTime, 10);
+			let endTime = schedule[i].endTime.substring(0, schedule[i].endTime.indexOf(":"));
+			let hoursEnd = parseInt(endTime, 10);
+
+			if(hourStart > hoursEnd){
+				console.log("blad");
+			}
+		}
+
+		console.log(schedule[0].startTime);
+		console.log(schedule[0].endTime);
+
+		axios.patch('http://localhost:8080/trainers/6',
+                [
+                    {
+						"op": "replace",
+						"path": "/workSchedule/opens/0",
+						"value": schedule[0].startTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/opens/1",
+						"value": schedule[1].startTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/opens/2",
+						"value": schedule[2].startTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/opens/3",
+						"value": schedule[3].startTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/opens/4",
+						"value": schedule[4].startTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/opens/5",
+						"value": schedule[5].startTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/opens/6",
+						"value": schedule[6].startTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/closes/0",
+						"value": schedule[0].endTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/closes/1",
+						"value": schedule[1].endTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/closes/2",
+						"value": schedule[2].endTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/closes/3",
+						"value": schedule[3].endTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/closes/4",
+						"value": schedule[4].endTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/closes/5",
+						"value": schedule[5].endTime
+					},
+					{
+						"op": "replace",
+						"path": "/workSchedule/closes/6",
+						"value": schedule[6].endTime
+					}
+                ],
+                {
+                    headers: {
+                        Authorization: authHeader
+                    }
+                }
+            )
+                .then(function (response) {
+                    if (response.status === 200) {
+                        window.location.href = '/';
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+    };
 
 
 	return (
@@ -81,7 +205,7 @@ const TrainerSchedule = () => {
 				</div>
 
 				<div className='saveBtn__container'>
-					<button className="time_button">SAVE SCHEDULES</button>
+					<button className="time_button" onClick={submitHandler}>SAVE SCHEDULES</button>
 				</div>
 			</main>
 		</div>
