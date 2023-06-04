@@ -18,8 +18,12 @@ function RegisterPage() {
     const submitHandler = (e) => {
         e.preventDefault()
         if (password !== confirmPassword) {
-            console.log('Passwords do not match!')
-        } else {
+            alert('Passwords do not match!')
+        
+        } 
+        else if(checked ===false){
+          alert('you are not above 12 years old')
+        }else {
             axios.put('http://localhost:8080/users/register', {
                 email: email,
                 firstName: fname,
@@ -37,11 +41,23 @@ function RegisterPage() {
               });
         }
     }
+const registerStyle = {
+  width: "100%", 
+  marginLeft: 0, 
+  backgroundColor:"#C90815",
+  border:"#C90815",
+}
 
+const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setChecked(!checked);
+    console.log(checked);
+  };
   return (
     <div>
       <FormContainer>
-        <h1>Sign Up</h1>
+        <h1 className="mb-4">Sign Up</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3 rounded" controlId="email">
             <Form.Label>Email Address</Form.Label>
@@ -92,10 +108,13 @@ function RegisterPage() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             ></Form.Control>
+            <Form.Label className="mt-4">Are you above 13?</Form.Label>
+            <input type="checkbox" className="ms-3" checked={checked}
+          onChange={handleChange}></input>
           </Form.Group>
           <Form.Group className="mb-3 rounded" controlId="password">
           </Form.Group>
-          <Button className="rounded" type='submit' variant='primary' style={{ width: '100%', marginLeft: 0 }}>
+          <Button className="rounded mt-2" type='submit' variant='primary' style={registerStyle}>
                     Register
                 </Button>
         </Form>

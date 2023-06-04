@@ -73,25 +73,12 @@ const ListOfGyms = () => {
               }
               key={location.id}
             >
-              <p className={
-                "para " +
-                (distances[location.id - 2] <= minDistance
-                  ? "text-white "
-                  : "text-black")
-              }>{location.address}</p>
-              <p className={
-                "para " +
-                (distances[location.id - 2] <= minDistance
-                  ? "text-white "
-                  : "text-black")
-              }>{location.opens + "-" + location.closes}</p>
+              <p className={"para location"}>{location.address}</p>
+              <p className={"para "}>
+                {location.opens + "-" + location.closes}
+              </p>
 
-              <p className={
-                "para description " +
-                (distances[location.id - 2] <= minDistance
-                  ? "text-white "
-                  : "text-black")
-              }>
+              <p className={"para description "}>
                 gyms description:
                 {location.description}
               </p>

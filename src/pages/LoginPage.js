@@ -42,16 +42,22 @@ function LoginPage() {
       .catch(function (error) {
         console.log(error);
         console.log(authHeader);
+        alert("incorrect login or password");
       });
   };
-
+  const registerStyle = {
+    width: "100%",
+    marginLeft: 0,
+    backgroundColor: "#C90815",
+    border: "#C90815",
+  };
   return (
     <div>
       <FormContainer>
-        <h1>Sign In</h1>
+        <h1 className="mb-4">Sign In</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3 rounded" controlId="email">
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label className="fontSize">Email Address</Form.Label>
             <Form.Control
               required
               type="email"
@@ -73,12 +79,7 @@ function LoginPage() {
           <Form.Group className="mb-3 rounded" controlId="password">
             <Link to="/register">Register</Link>
           </Form.Group>
-          <Button
-            className="rounded"
-            type="submit"
-            variant="primary"
-            style={{ width: "100%", marginLeft: 0 }}
-          >
+          <Button className="rounded " type="submit" style={registerStyle}>
             Sign In
           </Button>
         </Form>
