@@ -121,7 +121,7 @@ const NavbarCom = () => {
                 <a className="dropdown-item" href="/my-profile">
                   My profile
                 </a>
-                {getRole() === 'USER' && (
+                {getRole() === 'TRAINER' && (
                   <a className="dropdown-item" href="/time-schedule">
                     My schedule
                   </a>

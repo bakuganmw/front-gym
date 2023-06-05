@@ -22,7 +22,7 @@ function RegisterPage() {
         
         } 
         else if(checked ===false){
-          alert('you are not above 12 years old')
+          alert('you are not above 13 years old')
         }else {
             axios.put('http://localhost:8080/users/register', {
                 email: email,

@@ -57,7 +57,26 @@ const TrainerSchedule = () => {
 		setSchedule(list);
 	};
 
+	function getTrainer() {
+		axios
+		  .get("http://localhost:8080/users/current", {
+			headers: {
+			  Authorization: authHeader,
+			},
+		  })
+		  .then((response) => {
+			setTrainer(response.data.trainerId);
+			console.log(response.data.trainerId);
+		  })
+		  .catch((err) => console.log(err));
+		return trainer;
+	  }
+
+	  const [trainer, setTrainer] = useState('')
+
     const submitHandler = (e) => {
+
+		let flag = true;
 
         for(let i = 0; i < schedule.length; i++) {
 			let startTime = schedule[i].startTime.substring(0, schedule[i].startTime.indexOf(":"));
@@ -66,14 +85,14 @@ const TrainerSchedule = () => {
 			let hoursEnd = parseInt(endTime, 10);
 
 			if(hourStart > hoursEnd){
-				console.log("blad");
+				alert('Wrong hours!')
+				flag = false;
 			}
 		}
 
-		console.log(schedule[0].startTime);
-		console.log(schedule[0].endTime);
-
-		axios.patch('http://localhost:8080/trainers/6',
+		
+		if (flag) {
+		axios.patch('http://localhost:8080/trainers/8',
                 [
                     {
 						"op": "replace",
@@ -161,6 +180,7 @@ const TrainerSchedule = () => {
                     console.log(error);
                 });
     };
+}
 
 
 	return (
