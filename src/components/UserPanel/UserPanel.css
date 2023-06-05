@@ -11,3 +11,7 @@
 .text {
   color: #eeeeee;
 }
+
+.box{
+  padding: 30px 50px;
+}

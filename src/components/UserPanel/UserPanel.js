@@ -85,10 +85,15 @@ function UserPanel() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-
+    const registerStyle = {
+        width: "100%", 
+        marginLeft: 0, 
+        backgroundColor:"#C90815",
+        border:"#C90815",
+      }
     return (
         <Row className='userPanel'>
-            <Col md={3} className="form">
+            <Col md={3} className="form box" >
                 <h2 className="my-5 text">User Profile</h2>
                 <Form onSubmit={submitHandler}>
 
@@ -150,7 +155,7 @@ function UserPanel() {
                         </Form.Control>
                     </Form.Group>
 
-                    <Button className="mb-3 rounded" type='submit' variant='primary'>
+                    <Button className="mb-3 mt-4 rounded" type='submit' style={registerStyle}>
                         Update
                     </Button>
 

@@ -114,7 +114,7 @@ const [checked, setChecked] = React.useState(false);
           </Form.Group>
           <Form.Group className="mb-3 rounded" controlId="password">
           </Form.Group>
-          <Button className="rounded mt-2" type='submit' variant='primary' style={registerStyle}>
+          <Button className="rounded mt-2" type='submit' style={registerStyle}>
                     Register
                 </Button>
         </Form>

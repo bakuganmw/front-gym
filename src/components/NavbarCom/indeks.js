@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./NavbarElements.css";
 import axios from "axios";
 // import { Link } from "react-router-dom";
@@ -74,7 +74,7 @@ const NavbarCom = () => {
             
           </li>
           <li className="nav-item">
-            <a className="nav-link navOption" href="#">
+            <a className="nav-link navOption" href="/sessions">
               Sessions
             </a>
           </li>
@@ -89,7 +89,7 @@ const NavbarCom = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link navOption" href="#">
+            <a className="nav-link navOption" href="/trainers">
               Trainers
             </a>
           </li>
