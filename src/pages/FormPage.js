@@ -1,49 +1,48 @@
-import React from "react";
-import NavbarCom from "../components/NavbarCom/indeks";
-const FormPage = () => {
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Table } from 'react-bootstrap';
+import NavbarCom from '../components/NavbarCom/indeks';
 
-    const deleteHandler = (id) => {
-        if (window.confirm('Are you sure you want to delete this category?')) {
+function ContactList() {
+  const [contactForms, setContactForms] = useState([]);
 
-        }
-    }
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/contact-us')
+      .then((response) => {
+        setContactForms(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div>
     <NavbarCom />
-            <Row className='align-items-center'>
-                <Col>
-                    <h1>Categories</h1>
-                </Col>
-            </Row>
-                        <div>
-                            <Table striped bordered hover responsive className='table-sm'>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>EMAIL</th>
-                                        <th>DESCRIPTION</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                        <tr key={formId}>
-                                            <td>{formId}</td>
-                                            <td>{email}</td>
-                                            <td>{description}</td>
-                                            <td>
-                                                <Button variant='danger' className='btn-sm' onClick={() => deleteHandler(category._id)}>
-                                                    <i className='fas fa-trash'></i>
-                                                </Button>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </Table>
-                        </div>
-        </div>
+      <h1>Contact Forms</h1>
+      <Table striped bordered hover responsive>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Email</th>
+            <th>Recipient</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contactForms.map((form) => (
+            <tr key={form.id}>
+              <td>{form.title}</td>
+              <td>{form.email}</td>
+              <td>{form.recipient}</td>
+              <td>{form.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
   );
-};
+}
 
-export default FormPage;
-
+export default ContactList;
