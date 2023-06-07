@@ -6,6 +6,7 @@
 .form {
   background-color: #28242c;
   width: 60vh;
+  border-radius: 15px;
 }
 
 .text {
