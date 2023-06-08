@@ -40,6 +40,8 @@ p {
 
 .white-section {
   background-color: #2e2d2d;
+  width: 100%;
+  height: 100vh;
 }
 
 /* Navigation Bar */
