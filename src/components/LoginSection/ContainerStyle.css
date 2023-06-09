@@ -2,8 +2,6 @@
 .backgroundBody {
   background-color: #ffca0a;
   width: auto;
-  padding-bottom: 30px;
-  min-height: 100vh;
   position: relative; /* Added position relative */
 }
 
@@ -11,7 +9,7 @@
   padding-top: 10px;
   background-color: var(--dark-bg);
   position: relative;
-  height: 78px;
+  height: 76px;
 }
 
 #login {
@@ -22,7 +20,8 @@
 }
 
 #FormContainer {
-  margin: 100px auto;
+  position: inherit;
+  top: 13vh;
   padding: 40px 0;
   width: 40%;
   border-radius: 15px;
@@ -33,12 +32,10 @@
 /* login footer */
 .loginFooter {
   color: var(--dark-bg);
-  margin: 0;
 }
 
 .Footerbackground {
   width: auto;
-  padding-top: 100px;
   background-color: #ffca0a;
   position: absolute; /* Changed to position absolute */
   bottom: 0; /* Positioned at the bottom */
