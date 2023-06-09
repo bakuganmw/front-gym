@@ -11,7 +11,7 @@ function FormContainer({ children }) {
         </a>
       </div>
       <Container id="FormContainer">
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center" style={{ marginTop: '-20px' }}>
           <Col xs={12} md={4}>
             {children}
           </Col>
