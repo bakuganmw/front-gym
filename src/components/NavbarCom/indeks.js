@@ -47,7 +47,7 @@ const NavbarCom = () => {
       <div className="collaps navbar-collapse navchoice">
         <ul className="navbar-nav mx-1">
           <li className="nav-item dropdown">
-            {authHeader !== "" ?(<div><button
+            {authHeader !== "" ? (<div><button
               className="nav-link dropdown-toggle navOption bg-dark"
               id="navbarDropdownMenuLink"
               data-toggle="dropdown"
@@ -57,21 +57,21 @@ const NavbarCom = () => {
             >
               Reservations
             </button>
-            <div
-              className="dropdown-menu"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              {/* <a className="dropdown-item" href="#">
+              <div
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                {/* <a className="dropdown-item" href="#">
                 Rooms
               </a> */}
-              <a className="dropdown-item" href="/trainer-reservation">
-                Trainer
-              </a>
-              {/* <a className="dropdown-item" href="/session-reservation">
+                <a className="dropdown-item" href="/trainer-reservation">
+                  Trainer
+                </a>
+                {/* <a className="dropdown-item" href="/session-reservation">
                 Session
               </a> */}
-            </div></div>):(<div></div>)}
-            
+              </div></div>) : (<div></div>)}
+
           </li>
           <li className="nav-item">
             <a className="nav-link navOption" href="#">
@@ -131,8 +131,18 @@ const NavbarCom = () => {
                   </a>
                   </>
                 )}
+                {getRole() === 'ADMIN' && (
+                  <>
+                    <a className="dropdown-item" href="/administration">
+                      Administration
+                    </a>
+                    <a className="dropdown-item" href="/forms">
+                      Forms
+                    </a>
+                  </>
+                )}
                 <a className="dropdown-item" onClick={logout} href="/">
-                  logout
+                  Log out
                 </a>
               </div>
             </li>
