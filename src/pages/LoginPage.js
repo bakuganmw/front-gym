@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { Buffer } from "buffer";
+import LoginNav from "../components/LoginNav/indeks";
+import { registerStyle } from "../Utilities/functions";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -45,14 +47,10 @@ function LoginPage() {
         alert("incorrect login or password");
       });
   };
-  const registerStyle = {
-    width: "100%",
-    marginLeft: 0,
-    backgroundColor: "#C90815",
-    border: "#C90815",
-  };
+
   return (
     <div>
+      <LoginNav/>
       <FormContainer>
         <h1 className="mb-4">Sign In</h1>
         <Form onSubmit={submitHandler}>

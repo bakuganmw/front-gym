@@ -10,7 +10,8 @@ import UserPanelPage from './pages/UserPanelPage';
 import TrainerSchedulePage from './pages/TrainerSchedulePage';
 import AdminPanelPage from './pages/AdminPanelPage';
 import FormPage from './pages/FormPage';
-
+import TrainersPage from './pages/TrainersPage'
+import MultiPage from './pages/MultiPage';
 function App() {
 
 
@@ -28,6 +29,8 @@ function App() {
         <Route path="/time-schedule" element={<TrainerSchedulePage />} exact />
         <Route path="/administration" element={<AdminPanelPage />} exact />
         <Route path="/forms" element={<FormPage />} exact />
+        <Route path="/trainers" element={<TrainersPage />} exact />
+        <Route path="/multi" element={<MultiPage />} exact />
       </Routes>
     </Router>
   );

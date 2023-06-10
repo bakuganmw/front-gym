@@ -14,3 +14,8 @@ export default function getCookie(cname) {
     return "";
 }
 
+export const registerStyle = {
+    marginLeft: 0,
+    backgroundColor: "#C90815",
+    border: "#C90815",
+  };

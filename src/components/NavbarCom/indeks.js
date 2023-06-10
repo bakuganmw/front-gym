@@ -83,6 +83,11 @@ const NavbarCom = () => {
               Contact
             </a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link navOption" href="/multi">
+              Multi cards
+            </a>
+          </li>
         </ul>
       </div>
       <div>

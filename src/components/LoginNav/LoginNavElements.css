@@ -1,0 +1,14 @@
+.backgroundHead {
+    padding-top: 10px;
+    background-color: var(--dark-bg);
+    position: relative;
+    height: 76px;
+  }
+
+
+  #login {
+    color: #ffca0a;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+  }
