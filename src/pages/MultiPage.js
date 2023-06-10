@@ -169,7 +169,7 @@ const MultiPage = () => {
             </Col>
           </Row>
           <Button className="rounded mt-2" type="submit" style={registerStyle}>
-            Register
+            Send
           </Button>
         </Form>
       </Container>

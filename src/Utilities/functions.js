@@ -18,4 +18,5 @@ export const registerStyle = {
     marginLeft: 0,
     backgroundColor: "#C90815",
     border: "#C90815",
+    fontSize:"3vh",
   };
