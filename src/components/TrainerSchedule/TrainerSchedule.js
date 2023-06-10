@@ -92,7 +92,7 @@ const TrainerSchedule = () => {
 
 		
 		if (flag) {
-		axios.patch('http://localhost:8080/trainers/8',
+		axios.patch('http://localhost:8080/trainers/7',
                 [
                     {
 						"op": "replace",

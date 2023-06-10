@@ -31,7 +31,7 @@ function UserPanel() {
             })
             .then((response) => {
                 setUserId(response.data.id);
-                console.log(response.data.role);
+                console.log(response.data);
                 axios
 
                     .get("http://localhost:8080/users/" + response.data.id, {

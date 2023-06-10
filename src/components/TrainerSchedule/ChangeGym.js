@@ -31,9 +31,9 @@ function ChangeGym() {
     e.preventDefault();
 
     const formData = {
-        headers: {
-            Authorization: authHeader
-        },
+      headers: {
+        Authorization: authHeader
+    },
       description: description,
       gymId: gymId,
       workSchedule: {
@@ -51,6 +51,7 @@ function ChangeGym() {
         }
       })
       .catch((error) => {
+        console.log(formData);
         console.log(error);
         // Obsługa błędów żądania POST
       });
