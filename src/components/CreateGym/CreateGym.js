@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import NavbarCom from '../NavbarCom/indeks';
+import { Container } from 'react-bootstrap';
 
 const CreateGym = () => {
   const [address, setAddress] = useState('');
@@ -48,8 +49,11 @@ const CreateGym = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-    <NavbarCom />
+    <div className='backgroundBody'>
+      <NavbarCom />
+      <Container id="FormContainer">
+        <h1>Create gyms</h1>
+      <form classNameonSubmit={handleSubmit}>
       <div>
         <label>
           Address:
@@ -96,6 +100,9 @@ const CreateGym = () => {
       </div>
       <button type="submit">Submit</button>
     </form>
+      </Container>
+    </div>
+    
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import NavbarCom from "../NavbarCom/indeks";
 import { Col, Container, Row } from "react-bootstrap";
+import { registerStyle } from "../../Utilities/functions";
 
 function ChangeGym() {
   function getCookie(cname) {
@@ -113,7 +114,7 @@ function ChangeGym() {
               </div>
             ))}
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="mt-5" style={registerStyle}>Submit</button>
         </form>
       </Container>
     </div>
