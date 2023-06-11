@@ -92,6 +92,9 @@ const NavbarCom = () => {
                     <a className="dropdown-item" href="/time-schedule">
                       My schedule
                     </a>
+                    <a className="dropdown-item" href="/my-trainings">
+                      My trainings
+                    </a>
                     <a className="dropdown-item" href="/gym-change">
                       Change gym
                     </a>
