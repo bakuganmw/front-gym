@@ -13,7 +13,7 @@ import BookTrainer from './components/TrainerReservationSection/BookTrainer';
 import CreateGym from './components/CreateGym/CreateGym';
 import MultiPage from './pages/MultiPage';
 import TrainersPage from './pages/TrainersPage';
-
+import MyTrainings from './components/MyTrainings/MyTrainings';
 
 function App() {
 
@@ -35,6 +35,7 @@ function App() {
         <Route path="/create-gym" element={<CreateGym />} exact />
         <Route path="/multi" element={<MultiPage />} exact />
         <Route path="/trainers" element={<TrainersPage />} exact />
+        <Route path="/my-trainings" element={<MyTrainings />} exact />
       </Routes>
     </Router>
   );

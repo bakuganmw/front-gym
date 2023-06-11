@@ -113,7 +113,7 @@ function BookTrainer() {
           gymId: gymId,
           trainerId: trainerId,
           gymSectionId: "9",
-          trainingType: "test trainingType",
+          trainingType: "Personal training.",
           startTime: selectedDay + "T" + selectedHour + ":00:00.000Z",
           maxParticipants: 1
         };
