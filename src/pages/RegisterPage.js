@@ -20,7 +20,11 @@ function RegisterPage() {
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
     } else if (checked === false) {
-      alert("you are not above 13 years old");
+      alert("You must be at least 13 years old to proceed.");
+    } else if (!isPasswordValid(password)) {
+      alert(
+        "Password must contain at least 8 characters, including one uppercase letter and one digit."
+      );
     } else {
       axios
         .put("http://localhost:8080/users/register", {
@@ -30,17 +34,22 @@ function RegisterPage() {
           password: password,
         })
         .then(function (response) {
-          console.log(response);
           if (response.status === 200) {
             window.location.href = "/login";
           }
         })
         .catch(function (error) {
           console.log(error);
+          alert(error.response.data);
         });
+
     }
   };
 
+  const isPasswordValid = (password) => {
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    return regex.test(password);
+  };
 
   const [checked, setChecked] = React.useState(false);
 
@@ -48,6 +57,7 @@ function RegisterPage() {
     setChecked(!checked);
     console.log(checked);
   };
+
   return (
     <div>
       <LoginNav />
@@ -103,7 +113,7 @@ function RegisterPage() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             ></Form.Control>
-            <Form.Label className="mt-4">Are you above 13?</Form.Label>
+            <Form.Label className="mt-4">I confirm that I am 13 years old</Form.Label>
             <input
               type="checkbox"
               className="ms-3"
@@ -111,10 +121,7 @@ function RegisterPage() {
               onChange={handleChange}
             ></input>
           </Form.Group>
-          <Form.Group
-            className="mb-3 rounded"
-            controlId="password"
-          ></Form.Group>
+          <Form.Group className="mb-3 rounded" controlId="password"></Form.Group>
           <Button className="rounded mt-2" type="submit" style={registerStyle}>
             Register
           </Button>

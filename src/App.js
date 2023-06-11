@@ -11,8 +11,9 @@ import ChangeGym from './components/TrainerSchedule/ChangeGym';
 import AdminPanelPage from './pages/AdminPanelPage';
 import FormPage from './pages/FormPage';
 import BookTrainer from './components/TrainerReservationSection/BookTrainer';
-import TrainersPage from './pages/TrainersPage'
+import CreateGym from './components/CreateGym/CreateGym';
 import MultiPage from './pages/MultiPage';
+import TrainersPage from './pages/TrainersPage';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage/>} exact />
         <Route path="/login" element={<LoginPage/>} exact />
-        <Route path="/register" element={<RegisterPage/>} exact />
+        <Route path="/register" element={<RegisterPage/>} exact />x
         <Route path="/session-reservation" element={<SessionReservation />} exact />
         <Route path="/trainer-reservation" element={<Trainer />}  exact/>
         <Route path="/gyms" element={<GymPage />}  exact/>
@@ -32,8 +33,9 @@ function App() {
         <Route path="/administration" element={<AdminPanelPage />} exact />
         <Route path="/forms" element={<FormPage />} exact />
         <Route path="/book-trainer" element={<BookTrainer />} exact />
-        <Route path="/trainers" element={<TrainersPage />} exact />
+        <Route path="/create-gym" element={<CreateGym />} exact />
         <Route path="/multi" element={<MultiPage />} exact />
+        <Route path="/trainers" element={<TrainersPage />} exact />
       </Routes>
     </Router>
   );
