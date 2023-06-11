@@ -36,7 +36,6 @@ const ListOfTrainers = () => {
       })
       .catch((err) => console.log(err));
   };
-
   return (
     <div className="wrapper">
       <ul className="list-group list">
@@ -44,18 +43,19 @@ const ListOfTrainers = () => {
           <li className="listItem" key={trainer.id}>
             <img
               id="img"
-              src={require("../../images/trainers/1.png")}
+              src={require("../../images/trainers/" + trainer.id+".png")}
               alt="zs"
               style={{ width: "200px", height: "200px" }}
             />
-            <p className="para description">
-              Description: {trainer.description}
-            </p>
             {trainer.userData && (
-              <p className="para">
+              <p className="para" style={{fontSize:"3vh"}}>
                 Full Name: {trainer.userData.firstName} {trainer.userData.lastName}
               </p>
             )}
+            <p className="para description" style={{fontSize:"3vh"}}>
+              Description: {trainer.description}
+            </p>
+            
           </li>
         ))}
       </ul>

@@ -116,7 +116,7 @@ function Trainer() {
                 {" "}
                 <img
                   id="img"
-                  src={require("../../images/trainers/" + user.id + ".png")}
+                  src={require("../../images/trainers/" + user.trainerId + ".png")}
                   alt="zs"
                   style={{ width: "200px", heigt: "200px" }}
                 />

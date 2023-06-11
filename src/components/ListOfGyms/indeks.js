@@ -14,7 +14,7 @@ const ListOfGyms = () => {
     axios
       .get("http://localhost:8080/gyms")
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         setLocations(response.data);
         setLocationsCopy(response.data);
         const addresses = response.data.map((location) => location.address);
@@ -65,9 +65,14 @@ const ListOfGyms = () => {
     setFilteredValue(selectedAddress);
   };
 
+  const getDayOfWeekAbbreviation = (dayOfWeek) => {
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    return days[dayOfWeek];
+  };
+
   return (
     <div className="wrapper">
-      <div className="searchSection mx-auto" >
+      <div className="searchSection mx-auto">
         <select
           id="addressSelect"
           value={filteredValue}
@@ -91,11 +96,26 @@ const ListOfGyms = () => {
             }
             key={location.id}
           >
-            <p className="para locationName" style={{fontSize:"4vh"}}>{location.address}</p>
-            <p className="para " style={{fontSize:"2vh"}}>
+            <p className="para locationName" style={{ fontSize: "4vh" }}>
+              {location.address}
+            </p>
+            <p className="para " style={{ fontSize: "2vh" }}>
               {Math.round(distances[location.id - 1])} km from your position
             </p>
-            <p className="para description" style={{fontSize:"2vh"}}>Description: {location.description}</p>
+            <p className="para description" style={{ fontSize: "2vh" }}>
+              Description: {location.description}
+            </p>
+            <p className="para workSchedule" style={{ fontSize: "2vh" }}>
+              Work Schedule:
+              <br />
+              {location.workSchedule.opens.map((open, index) => (
+                <span key={index}>
+                  {getDayOfWeekAbbreviation(index)}: {open} -{" "}
+                  {location.workSchedule.closes[index]}
+                  <br />
+                </span>
+              ))}
+            </p>
           </li>
         ))}
       </ul>
