@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -53,10 +54,27 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
+  const submitHandler = (e) => {
+    e.preventDefault()
+        axios.put('http://localhost:8080/contact-us', {
+            title: "Formularz kontaktowy",
+            description: message,
+            recipient: name,
+            email: email
+          })
+          .then(function (response) {
+            console.log(response);
+            if (response.status === 200) {
+              window.location.href = '/';
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+}
   return (
     <>
-      <FormStyle>
+      <FormStyle onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="name">Your Name</label>
           <input
