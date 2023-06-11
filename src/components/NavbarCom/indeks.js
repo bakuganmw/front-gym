@@ -3,7 +3,6 @@ import "./NavbarElements.css";
 import axios from "axios";
 import getCookie from "../../Utilities/functions";
 const NavbarCom = () => {
-
   function getRole() {
     axios
       .get("http://localhost:8080/users/current", {
@@ -18,7 +17,7 @@ const NavbarCom = () => {
       .catch((err) => console.log(err));
     return role;
   }
-  const [role, setRole] = useState('')
+  const [role, setRole] = useState("");
   const authHeader = getCookie("authHeader");
   function logout() {
     document.cookie = "authHeader=; expires=" + new Date("1990-03-25");
@@ -32,36 +31,13 @@ const NavbarCom = () => {
       <div className="collaps navbar-collapse navchoice">
         <ul className="navbar-nav mx-1">
           <li className="nav-item dropdown">
-            {authHeader !== "" ? (<div><button
-              className="nav-link dropdown-toggle navOption bg-dark"
-              id="navbarDropdownMenuLink"
-              data-toggle="dropdown"
-              type="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Reservations
-            </button>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                {/* <a className="dropdown-item" href="#">
-                Rooms
-              </a> */}
-                <a className="dropdown-item" href="/trainer-reservation">
-                  Trainer
-                </a>
-                {/* <a className="dropdown-item" href="/session-reservation">
-                Session
-              </a> */}
-              </div></div>) : (<div></div>)}
-
-          </li>
-          <li className="nav-item">
-            <a className="nav-link navOption" href="/sessions">
-              Sessions
-            </a>
+            {authHeader !== "" ? (
+              <a className="nav-link navOption" href="/trainer-reservation">
+                Personal reservation
+              </a>
+            ) : (
+              <div></div>
+            )}
           </li>
           <li className="nav-item">
             <a className="nav-link navOption" href="/#pricing">
@@ -111,17 +87,17 @@ const NavbarCom = () => {
                 <a className="dropdown-item" href="/my-profile">
                   My profile
                 </a>
-                {getRole() === 'TRAINER' && (
+                {getRole() === "TRAINER" && (
                   <>
-                  <a className="dropdown-item" href="/time-schedule">
-                    My schedule
-                  </a>
-                  <a className="dropdown-item" href="/gym-change">
-                    Change gym
-                  </a>
+                    <a className="dropdown-item" href="/time-schedule">
+                      My schedule
+                    </a>
+                    <a className="dropdown-item" href="/gym-change">
+                      Change gym
+                    </a>
                   </>
                 )}
-                {getRole() === 'ADMIN' && (
+                {getRole() === "ADMIN" && (
                   <>
                     <a className="dropdown-item" href="/administration">
                       Administration
