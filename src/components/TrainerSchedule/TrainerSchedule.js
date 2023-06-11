@@ -184,7 +184,7 @@ const TrainerSchedule = () => {
 
 
 	return (
-		<div>
+		<div className="backgroundBody">
 			<main className='dashboard__main'>
 				<h2 className='dashboard__heading'>Select your availability</h2>
 
