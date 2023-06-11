@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./TrainerSchedule.css"
 import axios from "axios";
 
@@ -189,12 +189,12 @@ const TrainerSchedule = () => {
 			<main className='dashboard__main'>
 				<h2 className='dashboard__heading'>Select your availability</h2>
 
-				<div className='timezone__wrapper'>
+				<div className='timezone__wrapper pb-5' style={{background:"#28242C",borderRadius:"2vh",width:"40%"}}>
 					{schedule.map((sch, id) => (
 						<div className='formTrainer' key={id}>
 							<p>{sch.day}</p>
 							<div className='select__wrapper'>
-								<label htmlFor='startTime'>Start Time</label>
+								<label htmlFor='startTime' style={{color:"#EEEEEE"}}>Start Time</label>
 								<select
 									name='startTime'
 									id='startTime'
@@ -208,7 +208,7 @@ const TrainerSchedule = () => {
 								</select>
 							</div>
 							<div className='select__wrapper'>
-								<label htmlFor='endTime'>End Time</label>
+								<label htmlFor='endTime' style={{color:"#EEEEEE"}}>End Time</label>
 								<select
 									name='endTime'
 									id='endTime'
