@@ -65,6 +65,7 @@ export default function ContactForm() {
           .then(function (response) {
             console.log(response);
             if (response.status === 200) {
+              alert("We have received your submission.")
               window.location.href = '/';
             }
           })
