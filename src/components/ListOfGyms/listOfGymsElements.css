@@ -18,19 +18,30 @@ html {
   border-radius: 20px;
   border: solid grey;
   margin: 30px auto;
-  padding: 50px 30px;
+  padding: 70px 30px;
   width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.searchSection{
+  display: block;
+  width: 100%;
+  margin-left: 40vw;
+}
+
+#searchInput{
+  width: 100%;
+}
 .para {
   display: inline-block;
-  /* height: 200px; */
   width: 200px;
   color: #eeeeee;
 }
 
-.location {
-  float: left;
+.locationName {
+  font-size: 130%;
 }
 
 .description {

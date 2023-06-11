@@ -2,43 +2,26 @@
 .backgroundBody {
   background-color: #ffca0a;
   width: auto;
-  padding-bottom: 30px;
-  min-height: 100vh;
   position: relative; /* Added position relative */
 }
 
-.backgroundHead {
-  padding-top: 10px;
-  background-color: var(--dark-bg);
-  position: relative;
-  height: 78px;
-}
-
-#login {
-  color: #ffca0a;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 2em;
-}
-
 #FormContainer {
-  margin: 100px auto;
+  position: inherit;
+  top: 14vh;
   padding: 40px 0;
   width: 40%;
   border-radius: 15px;
-  color: #EEEEEE;
+  color: #eeeeee;
   background-color: var(--dark-bg);
 }
 
 /* login footer */
 .loginFooter {
   color: var(--dark-bg);
-  margin: 0;
 }
 
 .Footerbackground {
   width: auto;
-  padding-top: 100px;
   background-color: #ffca0a;
   position: absolute; /* Changed to position absolute */
   bottom: 0; /* Positioned at the bottom */

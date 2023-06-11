@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./NavbarElements.css";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import getCookie from "../../Utilities/functions";
 const NavbarCom = () => {
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(";");
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === " ") {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
 
   function getRole() {
     axios
@@ -74,7 +59,7 @@ const NavbarCom = () => {
 
           </li>
           <li className="nav-item">
-            <a className="nav-link navOption" href="#">
+            <a className="nav-link navOption" href="/sessions">
               Sessions
             </a>
           </li>
@@ -89,13 +74,18 @@ const NavbarCom = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link navOption" href="#">
+            <a className="nav-link navOption" href="/trainers">
               Trainers
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link navOption" href="/#contact">
               Contact
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link navOption" href="/multi">
+              Multi cards
             </a>
           </li>
         </ul>

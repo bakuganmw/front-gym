@@ -2,24 +2,10 @@ import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "./UserPanel.css";
-
+import getCookie from "../../Utilities/functions";
 function UserPanel() {
 
-    function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(";");
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === " ") {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) === 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
+    
     const authHeader = getCookie("authHeader");
 
     React.useEffect(() => {
@@ -85,10 +71,15 @@ function UserPanel() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-
+    const registerStyle = {
+        width: "100%", 
+        marginLeft: 0, 
+        backgroundColor:"#C90815",
+        border:"#C90815",
+      }
     return (
         <Row className='userPanel'>
-            <Col md={3} className="form">
+            <Col md={3} className="form box" >
                 <h2 className="my-5 text">User Profile</h2>
                 <Form onSubmit={submitHandler}>
 
@@ -150,7 +141,7 @@ function UserPanel() {
                         </Form.Control>
                     </Form.Group>
 
-                    <Button className="mb-3 rounded" type='submit' variant='primary'>
+                    <Button className="mb-3 mt-4 rounded" type='submit' style={registerStyle}>
                         Update
                     </Button>
 

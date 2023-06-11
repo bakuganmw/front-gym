@@ -1,13 +1,18 @@
 .userPanel {
-  padding: 5% 40%;
+  padding: 4% 40%;
   background-color: #ffca0a;
 }
 
 .form {
   background-color: #28242c;
   width: 60vh;
+  border-radius: 15px;
 }
 
 .text {
   color: #eeeeee;
+}
+
+.box{
+  padding: 30px 50px;
 }

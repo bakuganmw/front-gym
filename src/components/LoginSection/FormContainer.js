@@ -5,11 +5,6 @@ import "./ContainerStyle.css";
 function FormContainer({ children }) {
   return (
     <div className="backgroundBody">
-      <div className="backgroundHead">
-        <a id="login" href="/">
-          Gym king
-        </a>
-      </div>
       <Container id="FormContainer">
         <Row className="justify-content-md-center" style={{ marginTop: '-20px' }}>
           <Col xs={12} md={4}>
