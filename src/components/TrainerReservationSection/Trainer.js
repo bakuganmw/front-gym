@@ -127,7 +127,7 @@ function Trainer() {
               <td className="textValue">{getTrainerData(user.trainerId)}</td>
               <td className="textValue">
                 <Link
-                  to={`/book-trainer?trainerId=${user.trainerId}&firstName=${user.firstName}`}
+                  to={`/book-trainer?trainerId=${user.trainerId}&firstName=${user.firstName}&lastName=${user.lastName}`}
                   className="btn btn-primary"
                   style={registerStyle}
                 >

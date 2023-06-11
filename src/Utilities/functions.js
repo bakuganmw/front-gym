@@ -16,7 +16,9 @@ export default function getCookie(cname) {
 
 export const registerStyle = {
     marginLeft: 0,
+    color:"#EEEEEE",
     backgroundColor: "#C90815",
     border: "#C90815",
+    borderRadius:"5%",
     fontSize:"3vh",
   };
