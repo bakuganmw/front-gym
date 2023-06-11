@@ -10,7 +10,24 @@ function BookTrainer() {
     const [availableHours, setAvailableHours] = useState([]);
     const [selectedHour, setSelectedHour] = useState('');
     const [schedule, setSchedule] = useState([]);
+    const [gymId, setGymId] = useState('');
 
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === " ") {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    const authHeader = getCookie("authHeader");
 
     useEffect(() => {
         // Pobranie danych o trenerze i ustawienie stanu
@@ -38,8 +55,22 @@ function BookTrainer() {
             }
         };
 
+        const fetchTrainers = async () => {
+            try {
+              const response = await axios.get('http://localhost:8080/trainers/' + trainerId, {
+                headers: {
+                  Authorization: authHeader,
+                },  
+              });
+              setGymId(response.data.gymId);
+            } catch (error) {
+              console.log(error);
+            }
+          };
+
         if (trainerId) {
             fetchSchedule();
+            fetchTrainers();
         }
     }, [trainerId]);
 
@@ -59,10 +90,11 @@ function BookTrainer() {
         const selectedDaySchedule = schedule.filter((entry) => entry.split('T')[0] === day);
         console.log(selectedDaySchedule);
         if (selectedDaySchedule.length > 0) {
-          const startHour = parseInt(selectedDaySchedule[0].split('T')[1].split(':')[0], 10);
-          const endHour = parseInt(selectedDaySchedule[selectedDaySchedule.length - 1].split('T')[1].split(':')[0], 10);
-      
-          const availableHoursArray = Array.from({ length: endHour - startHour + 1 }, (_, index) => startHour + index);
+          const availableHoursArray = selectedDaySchedule.map((entry) => {
+            const hour = parseInt(entry.split('T')[1].split(':')[0], 10);
+            return hour;
+          });
+          console.log(availableHoursArray);
           setAvailableHours(availableHoursArray);
         } else {
           setAvailableHours([]);
@@ -72,16 +104,47 @@ function BookTrainer() {
       
       
       
+      
+      
 
     const handleHourSelect = (hour) => {
         setSelectedHour(hour);
     };
 
-    const handleSubmit = () => {
-        // Tutaj możesz wykonać żądanie POST z wybranymi danymi
-        console.log('Wybrany dzień:', selectedDay);
-        console.log('Wybrana godzina:', selectedHour);
-    };
+    const handleSubmit = async () => {
+        const body = {
+          gymId: gymId,
+          trainerId: trainerId,
+          gymSectionId: "8",
+          trainingType: "test trainingType",
+          startTime: selectedDay + "T" + selectedHour + ":00:00.000Z",
+          maxParticipants: 1
+        };
+            const headers = {
+              Authorization: authHeader
+            };
+      
+        try {
+          const response = await axios.post('http://localhost:8080/trainings', body, { headers });
+          console.log('Pomyślnie utworzono trening:', response.data);
+          // Tutaj możesz wykonać odpowiednie akcje po pomyślnym utworzeniu treningu
+        } catch (error) {
+          console.error('Błąd podczas tworzenia treningu:', error);
+          // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
+        }
+
+        try {
+        const response = await axios.put('http://localhost:8080/trainings/24/reservation', body, { headers });
+        console.log('Pomyślnie zarezerwowano trening:', response.data);
+        // Tutaj możesz wykonać odpowiednie akcje po pomyślnym zarezerwowaniu treningu
+        alert('Reservation confirmed')
+        window.location.href = '/trainer-reservation';
+      } catch (error) {
+        console.error('Błąd podczas rezerwacji treningu:', error);
+        // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
+      }
+      };
+      
 
     return (
         <div>

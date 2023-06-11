@@ -71,9 +71,9 @@ const TrainerSchedule = () => {
 		  .catch((err) => console.log(err));
 		return trainer;
 	  }
-
+	  
 	  const [trainer, setTrainer] = useState('')
-
+	  getTrainer()
     const submitHandler = (e) => {
 
 		let flag = true;
@@ -92,7 +92,7 @@ const TrainerSchedule = () => {
 
 		
 		if (flag) {
-		axios.patch('http://localhost:8080/trainers/7',
+		axios.patch('http://localhost:8080/trainers/' + trainer,
                 [
                     {
 						"op": "replace",

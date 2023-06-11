@@ -31,9 +31,6 @@ function ChangeGym() {
     e.preventDefault();
 
     const formData = {
-      headers: {
-        Authorization: authHeader
-    },
       description: description,
       gymId: gymId,
       workSchedule: {
@@ -42,8 +39,12 @@ function ChangeGym() {
       },
     };
 
+    const headers = {
+      Authorization: authHeader
+    };
+
     axios
-      .post('http://localhost:8080/trainers', formData)
+      .post('http://localhost:8080/trainers', formData , { headers })
       .then((response) => {
         console.log(response.data);
         if (response.status === 200) {
