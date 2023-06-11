@@ -112,9 +112,14 @@ const NavbarCom = () => {
                   My profile
                 </a>
                 {getRole() === 'TRAINER' && (
+                  <>
                   <a className="dropdown-item" href="/time-schedule">
                     My schedule
                   </a>
+                  <a className="dropdown-item" href="/gym-change">
+                    Change gym
+                  </a>
+                  </>
                 )}
                 {getRole() === 'ADMIN' && (
                   <>
