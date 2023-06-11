@@ -118,7 +118,7 @@ function BookTrainer() {
     const body = {
       gymId: gymId,
       trainerId: trainerId,
-      gymSectionId: "4",
+      gymSectionId: "9",
       trainingType: "Personal training.",
       startTime: selectedDay + "T" + formattedHour + ":00:00.000Z",
       maxParticipants: 1

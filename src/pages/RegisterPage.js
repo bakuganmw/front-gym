@@ -35,6 +35,7 @@ function RegisterPage() {
         })
         .then(function (response) {
           if (response.status === 200) {
+            alert("Account created with succes!")
             window.location.href = "/login";
           }
         })
