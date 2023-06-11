@@ -11,6 +11,7 @@ function BookTrainer() {
     const [selectedHour, setSelectedHour] = useState('');
     const [schedule, setSchedule] = useState([]);
     const [gymId, setGymId] = useState('');
+    const [trainingId, setTrainingId] = useState('');
 
     function getCookie(cname) {
         let name = cname + "=";
@@ -112,6 +113,8 @@ function BookTrainer() {
     };
 
     const handleSubmit = async () => {
+        console.log(selectedDay);
+        console.log(selectedHour);
         const body = {
           gymId: gymId,
           trainerId: trainerId,
@@ -120,30 +123,34 @@ function BookTrainer() {
           startTime: selectedDay + "T" + selectedHour + ":00:00.000Z",
           maxParticipants: 1
         };
-            const headers = {
-              Authorization: authHeader
-            };
+        const headers = {
+          Authorization: authHeader
+        };
       
         try {
           const response = await axios.post('http://localhost:8080/trainings', body, { headers });
           console.log('Pomyślnie utworzono trening:', response.data);
           // Tutaj możesz wykonać odpowiednie akcje po pomyślnym utworzeniu treningu
+          console.log(response.data.id);
+          const trainingId = response.data.id; // Ustawienie wartości trainingId
+          setTrainingId(trainingId);
+          
+          try {
+            const response = await axios.put(`http://localhost:8080/trainings/${trainingId}/reservation`, body, { headers });
+            console.log('Pomyślnie zarezerwowano trening:', response.data);
+            // Tutaj możesz wykonać odpowiednie akcje po pomyślnym zarezerwowaniu treningu
+            alert('Reservation confirmed');
+            window.location.href = '/trainer-reservation';
+          } catch (error) {
+            console.error('Błąd podczas rezerwacji treningu:', error);
+            // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
+          }
         } catch (error) {
           console.error('Błąd podczas tworzenia treningu:', error);
           // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
         }
-
-        try {
-        const response = await axios.put('http://localhost:8080/trainings/24/reservation', body, { headers });
-        console.log('Pomyślnie zarezerwowano trening:', response.data);
-        // Tutaj możesz wykonać odpowiednie akcje po pomyślnym zarezerwowaniu treningu
-        alert('Reservation confirmed')
-        window.location.href = '/trainer-reservation';
-      } catch (error) {
-        console.error('Błąd podczas rezerwacji treningu:', error);
-        // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
-      }
       };
+      
       
 
     return (
