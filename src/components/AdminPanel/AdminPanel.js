@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button } from 'react-bootstrap';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Table, Button } from "react-bootstrap";
+import axios from "axios";
+import { buttonRole, buttonRoleUser, registerStyle } from "../../Utilities/functions";
 
 function AdminPanel() {
   function getCookie(cname) {
-    let name = cname + '=';
+    let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
+    let ca = decodedCookie.split(";");
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (c.charAt(0) === ' ') {
+      while (c.charAt(0) === " ") {
         c = c.substring(1);
       }
       if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length);
       }
     }
-    return '';
+    return "";
   }
-  const authHeader = getCookie('authHeader');
+  const authHeader = getCookie("authHeader");
 
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/users', {
+      .get("http://localhost:8080/users", {
         headers: {
           Authorization: authHeader,
         },
@@ -36,14 +37,14 @@ function AdminPanel() {
   }, [authHeader]);
 
   const handleRoleChange = (userId, currentRole) => {
-    const newRole = currentRole === 'TRAINER' ? 'USER' : 'TRAINER';
+    const newRole = currentRole === "TRAINER" ? "USER" : "TRAINER";
     axios
       .patch(
         `http://localhost:8080/users/${userId}`,
         [
           {
-            op: 'replace',
-            path: '/role',
+            op: "replace",
+            path: "/role",
             value: newRole,
           },
         ],
@@ -55,7 +56,7 @@ function AdminPanel() {
       )
       .then((response) => {
         if (response.status === 200) {
-          window.location.href = '/administration';
+          window.location.href = "/administration";
         }
       })
       .catch((error) => {
@@ -64,16 +65,21 @@ function AdminPanel() {
   };
 
   return (
-    <div>
-      <h1>Users</h1>
-      <Table striped bordered hover responsive className="table-sm">
+    <div className="backgroundBody">
+      <h1 className="py-3">Users</h1>
+      <Table
+        striped
+        bordered
+        hover
+        responsive
+        style={{backgroundColor:"#EEEEEE",border:"#28242C"}}
+      >
         <thead>
           <tr>
             <th>ID</th>
             <th>NAME</th>
             <th>EMAIL</th>
             <th>Trainer</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -83,11 +89,11 @@ function AdminPanel() {
               <td>{user.firstName}</td>
               <td>{user.email}</td>
               <td>
-                {user.role === 'TRAINER' ? (
+                {user.role === "TRAINER" ? (
                   <Button
                     onClick={() => handleRoleChange(user.id, user.role)}
                     type="submit"
-                    style={{ backgroundColor: 'green' }}
+                    style={buttonRoleUser}
                   >
                     Change to User
                   </Button>
@@ -95,7 +101,7 @@ function AdminPanel() {
                   <Button
                     onClick={() => handleRoleChange(user.id, user.role)}
                     type="submit"
-                    style={{ backgroundColor: 'red' }}
+                    style={buttonRole}
                   >
                     Change to Trainer
                   </Button>

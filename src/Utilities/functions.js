@@ -22,3 +22,21 @@ export const registerStyle = {
     borderRadius:"5%",
     fontSize:"3vh",
   };
+
+  export const buttonRole = {
+    marginLeft: 0,
+    color:"#EEEEEE",
+    backgroundColor: "#C90815",
+    border: "#C90815",
+    borderRadius:"8%",
+    fontSize:"2vh",
+  };
+
+  export const buttonRoleUser = {
+    marginLeft: 0,
+    color:"#EEEEEE",
+    backgroundColor: "green",
+    border: "#C90815",
+    borderRadius:"8%",
+    fontSize:"2vh",
+  };

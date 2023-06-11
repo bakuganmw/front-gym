@@ -34,10 +34,10 @@ function ContactList() {
   };
 
   return (
-    <div>
+    <div className='backgroundBody'>
       <NavbarCom />
-      <h1>Contact Forms</h1>
-      <Table striped bordered hover responsive>
+      <h1 className='mt-4'>Contact Forms</h1>
+      <Table striped bordered hover responsive style={{backgroundColor:"#EEEEEE",border:"#28242C"}}>
         <thead>
           <tr>
             <th>Title</th>
