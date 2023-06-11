@@ -71,7 +71,8 @@ const NavbarCom = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item dropdown">
               <button
-                className="nav-link dropdown-toggle bg-dark me-5"
+                style={{marginRight:"4vw"}}
+                className="nav-link dropdown-toggle bg-dark"
                 id="navbarDropdownMenuLink"
                 data-toggle="dropdown"
                 type="button"
@@ -84,36 +85,36 @@ const NavbarCom = () => {
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a className="dropdown-item" href="/my-profile">
+                <a className="dropdown-item word" href="/my-profile">
                   My profile
                 </a>
                 {getRole() === "TRAINER" && (
                   <>
-                    <a className="dropdown-item" href="/time-schedule">
+                    <a className="dropdown-item word" href="/time-schedule">
                       My schedule
                     </a>
-                    <a className="dropdown-item" href="/my-trainings">
+                    <a className="dropdown-item word" href="/my-trainings">
                       My trainings
                     </a>
-                    <a className="dropdown-item" href="/gym-change">
+                    <a className="dropdown-item word" href="/gym-change">
                       Change gym
                     </a>
                   </>
                 )}
                 {getRole() === "ADMIN" && (
                   <>
-                    <a className="dropdown-item" href="/administration">
+                    <a className="dropdown-item word" href="/administration">
                       Administration
                     </a>
-                    <a className="dropdown-item" href="/forms">
+                    <a className="dropdown-item word" href="/forms">
                       Forms
                     </a>
-                    <a className="dropdown-item" href="/create-gym">
+                    <a className="dropdown-item word" href="/create-gym">
                       Create gym
                     </a>
                   </>
                 )}
-                <a className="dropdown-item" onClick={logout} href="/">
+                <a className="dropdown-item word" onClick={logout} href="/">
                   Log out
                 </a>
               </div>

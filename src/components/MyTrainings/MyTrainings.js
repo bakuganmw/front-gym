@@ -55,15 +55,15 @@ function MyTrainings() {
       {filteredTrainings.length === 0 ? (
         <p>You don't have any trainings at this moment</p>
       ) : (
-        <table className="mx-auto" style={{borderRadius:"#C90815"}}>
+        <table className="mx-auto">
           <thead >
             <tr>
-              <th style={{fontSize:"4vh"}}>Start Time of training</th>
+              <th style={{fontSize:"4vh"}}>Start Time of trainings</th>
             </tr>
           </thead>
           <tbody >
             {filteredTrainings.map((training) => (
-              <tr key={training.id} style={{fontSize:"3vh"}}>
+              <tr key={training.id} style={{fontSize:"3vh",border:"solid #C90815"}}>
                 <td>{formatDateTime(training.startTime)}</td>
               </tr>
             ))}
