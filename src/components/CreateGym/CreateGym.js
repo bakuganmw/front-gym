@@ -51,7 +51,7 @@ const CreateGym = () => {
   return (
     <div className="backgroundBody">
       <NavbarCom />
-      <Container id="FormContainer" style={{ width: "70vw" }}>
+      <Container id="FormContainer" style={{ width: "70vw" }} onSubmit={handleSubmit}>
         <h1>Create gyms</h1>
         <form classNameonSubmit={handleSubmit}>
           <div>
