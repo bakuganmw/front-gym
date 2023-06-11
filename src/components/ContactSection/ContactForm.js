@@ -55,6 +55,10 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const submitHandler = (e) => {
+    if (!name || !email || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
     e.preventDefault()
         axios.put('http://localhost:8080/contact-us', {
             title: "Formularz kontaktowy",
