@@ -14,6 +14,7 @@ import CreateGym from './components/CreateGym/CreateGym';
 import MultiPage from './pages/MultiPage';
 import TrainersPage from './pages/TrainersPage';
 
+
 function App() {
 
 
@@ -23,7 +24,6 @@ function App() {
         <Route path="/" element={<MainPage/>} exact />
         <Route path="/login" element={<LoginPage/>} exact />
         <Route path="/register" element={<RegisterPage/>} exact />
-        <Route path="/session-reservation" element={<SessionReservation />} exact />
         <Route path="/trainer-reservation" element={<Trainer />}  exact/>
         <Route path="/gyms" element={<GymPage />}  exact/>
         <Route path="/my-profile" element={<UserPanelPage />} exact />
