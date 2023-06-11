@@ -44,7 +44,7 @@ const ListOfTrainers = () => {
           <li className="listItem" key={trainer.id}>
             <img
               id="img"
-              src={require("../../images/1.png")}
+              src={require("../../images/trainers/1.png")}
               alt="zs"
               style={{ width: "200px", height: "200px" }}
             />
