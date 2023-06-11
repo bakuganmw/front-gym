@@ -107,43 +107,51 @@ function BookTrainer() {
   };
 
   const handleSubmit = async () => {
-        console.log(selectedDay);
-        console.log(selectedHour);
-        const body = {
-          gymId: gymId,
-          trainerId: trainerId,
-          gymSectionId: "13",
-          trainingType: "Personal training.",
-          startTime: selectedDay + "T" + selectedHour + ":00:00.000Z",
-          maxParticipants: 1
-        };
-        const headers = {
-          Authorization: authHeader
-        };
-      
-        try {
-          const response = await axios.post('http://localhost:8080/trainings', body, { headers });
-          console.log('Pomyślnie utworzono trening:', response.data);
-          // Tutaj możesz wykonać odpowiednie akcje po pomyślnym utworzeniu treningu
-          console.log(response.data.id);
-          const trainingId = response.data.id; // Ustawienie wartości trainingId
-          setTrainingId(trainingId);
-          
-          try {
-            const response = await axios.put(`http://localhost:8080/trainings/${trainingId}/reservation`, body, { headers });
-            console.log('Pomyślnie zarezerwowano trening:', response.data);
-            // Tutaj możesz wykonać odpowiednie akcje po pomyślnym zarezerwowaniu treningu
-            alert('Reservation confirmed');
-            window.location.href = '/trainer-reservation';
-          } catch (error) {
-            console.error('Błąd podczas rezerwacji treningu:', error);
-            // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
-          }
-        } catch (error) {
-          console.error('Błąd podczas tworzenia treningu:', error);
-          // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
-        }
-      };
+    console.log(selectedDay);
+    console.log(selectedHour);
+  
+    let formattedHour = selectedHour;
+    if (selectedHour < 10) {
+      formattedHour = "0" + selectedHour;
+    }
+  
+    const body = {
+      gymId: gymId,
+      trainerId: trainerId,
+      gymSectionId: "8",
+      trainingType: "Personal training.",
+      startTime: selectedDay + "T" + formattedHour + ":00:00.000Z",
+      maxParticipants: 1
+    };
+  
+    const headers = {
+      Authorization: authHeader
+    };
+  
+    try {
+      const response = await axios.post('http://localhost:8080/trainings', body, { headers });
+      console.log('Pomyślnie utworzono trening:', response.data);
+      // Tutaj możesz wykonać odpowiednie akcje po pomyślnym utworzeniu treningu
+      console.log(response.data.id);
+      const trainingId = response.data.id; // Ustawienie wartości trainingId
+      setTrainingId(trainingId);
+  
+      try {
+        const response = await axios.put(`http://localhost:8080/trainings/${trainingId}/reservation`, body, { headers });
+        console.log('Pomyślnie zarezerwowano trening:', response.data);
+        // Tutaj możesz wykonać odpowiednie akcje po pomyślnym zarezerwowaniu treningu
+        alert('Reservation confirmed');
+        window.location.href = '/trainer-reservation';
+      } catch (error) {
+        console.error('Błąd podczas rezerwacji treningu:', error);
+        // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
+      }
+    } catch (error) {
+      console.error('Błąd podczas tworzenia treningu:', error);
+      // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
+    }
+  };
+  
 
   return (
     <div className="backgroundBody">

@@ -59,6 +59,7 @@ function ChangeGym() {
       .then((response) => {
         console.log(response.data);
         if (response.status === 200) {
+          alert("Changed gym with succes!")
           window.location.href = "/";
         }
       })

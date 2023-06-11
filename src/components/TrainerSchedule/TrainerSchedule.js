@@ -173,6 +173,7 @@ const TrainerSchedule = () => {
             )
                 .then(function (response) {
                     if (response.status === 200) {
+						alert("Added schedule with succes!")
                         window.location.href = '/';
                     }
                 })
