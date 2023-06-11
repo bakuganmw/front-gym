@@ -129,6 +129,9 @@ const NavbarCom = () => {
                     <a className="dropdown-item" href="/forms">
                       Forms
                     </a>
+                    <a className="dropdown-item" href="/create-gym">
+                      Create gym
+                    </a>
                   </>
                 )}
                 <a className="dropdown-item" onClick={logout} href="/">
