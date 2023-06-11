@@ -49,21 +49,21 @@ function MyTrainings() {
   );
 
   return (
-    <div>
+    <div className="backgroundBody">
       <NavbarCom />
-      <h1>Training List</h1>
+      <h1 className="mt-4"> Trainers training List</h1>
       {filteredTrainings.length === 0 ? (
         <p>You don't have any trainings at this moment</p>
       ) : (
-        <table>
-          <thead>
+        <table className="mx-auto" style={{borderRadius:"#C90815"}}>
+          <thead >
             <tr>
-              <th>Start Time of training</th>
+              <th style={{fontSize:"4vh"}}>Start Time of training</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             {filteredTrainings.map((training) => (
-              <tr key={training.id}>
+              <tr key={training.id} style={{fontSize:"3vh"}}>
                 <td>{formatDateTime(training.startTime)}</td>
               </tr>
             ))}

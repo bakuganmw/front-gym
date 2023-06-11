@@ -42,3 +42,7 @@ select {
 	padding: 10px;
 	min-width: 150px;
 }
+
+.word{
+	font-size: 2vh;
+}

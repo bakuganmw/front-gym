@@ -93,10 +93,10 @@ function ChangeGym() {
     <div className="backgroundBody">
       <NavbarCom />
       <Container id="FormContainer">
-        <h1>Add Trainer</h1>
+        <h1>Change gym for trainers</h1>
         <div className="me-4 my-4">
-          <label htmlFor="description">Description:</label>
-          <input
+          <label htmlFor="description" className="word">Description:</label>
+          <textarea
             type="text"
             id="description"
             value={description}
@@ -104,13 +104,13 @@ function ChangeGym() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="gymId">Gym ID:</label>
+          <label htmlFor="gymId" className="me-2 word">Gym Address:</label>
           <select
             id="gymId"
             value={gymId}
             onChange={(e) => setGymId(e.target.value)}
           >
-            <option value="">Select a gym</option>
+            <option value="" >Select a gym</option>
             {gyms.map((gym) => (
               <option key={gym.id} value={gym.id}>
                 {gym.address}
@@ -122,8 +122,9 @@ function ChangeGym() {
           <div>
             {opens.map((value, index) => (
               <div key={index}>
-                <label>Opens:</label>
+                <label className="me-3 word">Opens:</label>
                 <select
+                className="me-3"
                   value={opens[index]}
                   onChange={(e) => {
                     const updatedOpens = [...opens];
@@ -133,7 +134,7 @@ function ChangeGym() {
                 >
                   {generateTimeOptions()}
                 </select>
-                <label>Closes:</label>
+                <label className="me-3 word">Closes:</label>
                 <select
                   value={closes[index]}
                   onChange={(e) => {

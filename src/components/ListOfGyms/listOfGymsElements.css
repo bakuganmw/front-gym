@@ -5,6 +5,7 @@ html {
 .wrapper {
   padding-top: 30px;
   position: absolute;
+  width: 50%;
 }
 
 .list {
@@ -26,9 +27,8 @@ html {
 }
 
 .searchSection{
-  display: block;
-  width: 100%;
-  margin-left: 40vw;
+  position:relative;
+    left: 50%;
 }
 
 #searchInput{

@@ -67,10 +67,9 @@ const ListOfGyms = () => {
 
   return (
     <div className="wrapper">
-      <div className="searchSection">
+      <div className="searchSection mx-auto" >
         <select
           id="addressSelect"
-          className="mx-auto"
           value={filteredValue}
           onChange={(e) => handleSelectAddress(e.target.value)}
         >
@@ -92,11 +91,11 @@ const ListOfGyms = () => {
             }
             key={location.id}
           >
-            <p className="para locationName">{location.address}</p>
-            <p className="para">
+            <p className="para locationName" style={{fontSize:"4vh"}}>{location.address}</p>
+            <p className="para " style={{fontSize:"2vh"}}>
               {Math.round(distances[location.id - 1])} km from your position
             </p>
-            <p className="para description">gyms description: {location.description}</p>
+            <p className="para description" style={{fontSize:"2vh"}}>Description: {location.description}</p>
           </li>
         ))}
       </ul>
