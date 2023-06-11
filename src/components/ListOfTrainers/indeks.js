@@ -17,10 +17,10 @@ const ListOfTrainers = () => {
       <ul className="list-group list">
         {trainers.map((trainer) => {
           return (
-            <li className={"listItem "} key={trainer.id}>
+            <li className="listItem " key={trainer.id}>
               <img
                 id="img"
-                src={require("../../images/1.png")}
+                src={require("../../images/trainers/1.png")}
                 alt="zs"
                 style={{ width: "200px", heigt: "200px" }}
               />

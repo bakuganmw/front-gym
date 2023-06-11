@@ -1,42 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import NavbarCom from '../NavbarCom/indeks';
-import { Link } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import NavbarCom from "../NavbarCom/indeks";
+import { Link } from "react-router-dom";
+import getCookie from "../../Utilities/functions";
+import "./Reservation.css";
+import { registerStyle } from "../../Utilities/functions";
 function Trainer() {
   const [users, setUsers] = useState([]);
   const [trainers, setTrainers] = useState([]);
   const [gyms, setGyms] = useState([]);
   const [selectedGymId, setSelectedGymId] = useState(null);
 
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(";");
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === " ") {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-const authHeader = getCookie("authHeader");
+  const authHeader = getCookie("authHeader");
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/users', {
+        const response = await axios.get("http://localhost:8080/users", {
           headers: {
             Authorization: authHeader,
           },
         });
 
         // Filtrujemy użytkowników, którzy mają powiązanie z trenerem
-        const filteredUsers = response.data.filter((user) => user.trainerId !== null);
+        const filteredUsers = response.data.filter(
+          (user) => user.trainerId !== null
+        );
 
         setUsers(filteredUsers);
       } catch (error) {
@@ -46,7 +35,7 @@ const authHeader = getCookie("authHeader");
 
     const fetchTrainers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/trainers', {
+        const response = await axios.get("http://localhost:8080/trainers", {
           headers: {
             Authorization: authHeader,
           },
@@ -59,7 +48,7 @@ const authHeader = getCookie("authHeader");
 
     const fetchGyms = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/gyms', {
+        const response = await axios.get("http://localhost:8080/gyms", {
           headers: {
             Authorization: authHeader,
           },
@@ -77,7 +66,7 @@ const authHeader = getCookie("authHeader");
 
   const getTrainerData = (trainerId) => {
     const trainer = trainers.find((trainer) => trainer.id === trainerId);
-    return trainer ? trainer.description : '';
+    return trainer ? trainer.description : "";
   };
 
   const handleGymChange = (event) => {
@@ -87,11 +76,11 @@ const authHeader = getCookie("authHeader");
 
   const renderGymOptions = () => {
     return (
-      <select onChange={handleGymChange} value={selectedGymId}>
+      <select className="mt-3" onChange={handleGymChange} value={selectedGymId}>
         <option value="">All Gyms</option>
         {gyms.map((gym) => (
           <option key={gym.id} value={gym.id}>
-            {gym.id}
+            {gym.address}
           </option>
         ))}
       </select>
@@ -103,29 +92,45 @@ const authHeader = getCookie("authHeader");
 
     if (selectedGymId) {
       filteredUsers = filteredUsers.filter((user) => {
-        const trainer = trainers.find((trainer) => trainer.id === user.trainerId);
+        const trainer = trainers.find(
+          (trainer) => trainer.id === user.trainerId
+        );
         return trainer && trainer.gymId === selectedGymId;
       });
     }
 
     return (
-      <table>
-        <thead>
+      <table className="mx-auto mt-4 tableTrainers">
+        <thead className="trainer">
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Description</th>
-            <th>Actions</th>
+            <th className="textValue"></th>
+            <th className="textValue">Full Name</th>
+            <th className="textValue">Description</th>
+            <th className="textValue">Actions</th>
           </tr>
         </thead>
         <tbody>
           {filteredUsers.map((user) => (
-            <tr key={user.userId}>
-              <td>{user.firstName}</td>
-              <td>{user.lastName}</td>
-              <td>{getTrainerData(user.trainerId)}</td>
-              <td>
-                <Link to={`/book-trainer?trainerId=${user.trainerId}&firstName=${user.firstName}`} className="btn btn-primary">
+            <tr className="trainer" key={user.userId}>
+              <td className="textValue">
+                {" "}
+                <img
+                  id="img"
+                  src={require("../../images/trainers/" + user.id + ".png")}
+                  alt="zs"
+                  style={{ width: "200px", heigt: "200px" }}
+                />
+              </td>
+              <td className="textValue">
+                {user.firstName} {user.lastName}
+              </td>
+              <td className="textValue">{getTrainerData(user.trainerId)}</td>
+              <td className="textValue">
+                <Link
+                  to={`/book-trainer?trainerId=${user.trainerId}&firstName=${user.firstName}&lastName=${user.lastName}`}
+                  className="btn btn-primary"
+                  style={registerStyle}
+                >
                   Book Now
                 </Link>
               </td>
@@ -136,13 +141,14 @@ const authHeader = getCookie("authHeader");
     );
   };
 
-
   return (
-    <div>
-    <NavbarCom />
-      <h1>User Trainers</h1>
-      {renderGymOptions()}
-      {renderTable()}
+    <div className="backgroundBody">
+      <NavbarCom />
+      <div>
+        <h1 className="mt-5">Available trainers</h1>
+        {renderGymOptions()}
+        {renderTable()}
+      </div>
     </div>
   );
 }
