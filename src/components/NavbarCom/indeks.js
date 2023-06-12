@@ -97,7 +97,7 @@ const NavbarCom = () => {
                       My trainings
                     </a>
                     <a className="dropdown-item word" href="/gym-change">
-                      Change gym
+                      Choose gym
                     </a>
                   </>
                 )}

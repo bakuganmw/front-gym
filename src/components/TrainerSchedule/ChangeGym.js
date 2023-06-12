@@ -64,6 +64,7 @@ function ChangeGym() {
         }
       })
       .catch((error) => {
+        alert("You already have a gym!")
         console.log(formData);
         console.log(error);
         // Obsługa błędów żądania POST
@@ -94,7 +95,7 @@ function ChangeGym() {
     <div className="backgroundBody">
       <NavbarCom />
       <Container id="FormContainer">
-        <h1>Change gym for trainers</h1>
+        <h1>Choose gym for trainers</h1>
         <div className="me-4 my-4">
           <label htmlFor="description" className="word">Description of trainer:</label>
           <textarea
