@@ -15,7 +15,9 @@ function BookTrainer() {
   const [gymId, setGymId] = useState("");
   const [lastName, setLastName] = useState(null);
   const [trainingId, setTrainingId] = useState('')
+  const [gymSectionId, setGymSectionId] = useState('')
   const authHeader = getCookie("authHeader");
+  
 
   useEffect(() => {
     // Pobranie danych o trenerze i ustawienie stanu
@@ -107,38 +109,52 @@ function BookTrainer() {
   };
 
   const handleSubmit = async () => {
-    console.log(selectedDay);
-    console.log(selectedHour);
-  
-    let formattedHour = selectedHour;
-    if (selectedHour < 10) {
-      formattedHour = "0" + selectedHour;
-    }
-  
-    const body = {
+  console.log(selectedDay);
+  console.log(selectedHour);
+
+  let formattedHour = selectedHour;
+  if (selectedHour < 10) {
+    formattedHour = "0" + selectedHour;
+  }
+
+  const gymSectionBody = {
+    gymId: gymId,
+    name: "test",
+    description: "test"
+  };
+
+  const headers = {
+    Authorization: authHeader
+  };
+
+  try {
+    const gymSectionResponse = await axios.post('http://localhost:8080/gyms/'+ gymId +'/sections', gymSectionBody, { headers });
+    console.log('Pomyślnie utworzono sekcję siłowni:', gymSectionResponse.data);
+    // Tutaj możesz wykonać odpowiednie akcje po pomyślnym utworzeniu sekcji siłowni
+    console.log(gymSectionResponse.data.id);
+    const gymSectionId = gymSectionResponse.data.id; // Ustawienie wartości gymSectionId
+    setGymSectionId(gymSectionId);
+
+    const trainingBody = {
       gymId: gymId,
       trainerId: trainerId,
-      gymSectionId: "9",
+      gymSectionId: gymSectionId,
       trainingType: "Personal training.",
       startTime: selectedDay + "T" + formattedHour + ":00:00.000Z",
       maxParticipants: 1
     };
-  
-    const headers = {
-      Authorization: authHeader
-    };
-  
+
     try {
-      const response = await axios.post('http://localhost:8080/trainings', body, { headers });
-      console.log('Pomyślnie utworzono trening:', response.data);
+      const trainingResponse = await axios.post('http://localhost:8080/trainings', trainingBody, { headers });
+      console.log('Pomyślnie utworzono trening:', trainingResponse.data);
       // Tutaj możesz wykonać odpowiednie akcje po pomyślnym utworzeniu treningu
-      console.log(response.data.id);
-      const trainingId = response.data.id; // Ustawienie wartości trainingId
+      console.log(trainingResponse.data.id);
+      const trainingId = trainingResponse.data.id; // Ustawienie wartości trainingId
       setTrainingId(trainingId);
-  
+
       try {
-        const response = await axios.put(`http://localhost:8080/trainings/${trainingId}/reservation`, body, { headers });
-        console.log('Pomyślnie zarezerwowano trening:', response.data);
+        const reservationResponse = await axios.put(`http://localhost:8080/trainings/${trainingId}/reservation`, trainingBody, { headers });
+        console.log('Pomyślnie zarezerwowano trening:', reservationResponse.data);
         // Tutaj możesz wykonać odpowiednie akcje po pomyślnym zarezerwowaniu treningu
         alert('Reservation confirmed');
         window.location.href = '/trainer-reservation';
@@ -150,7 +166,12 @@ function BookTrainer() {
       console.error('Błąd podczas tworzenia treningu:', error);
       // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
     }
-  };
+  } catch (error) {
+    console.error('Błąd podczas tworzenia sekcji siłowni:', error);
+    // Tutaj możesz obsłużyć błąd i wyświetlić odpowiedni komunikat dla użytkownika
+  }
+};
+
   
 
   return (

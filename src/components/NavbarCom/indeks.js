@@ -31,7 +31,7 @@ const NavbarCom = () => {
       <div className="collaps navbar-collapse navchoice">
         <ul className="navbar-nav mx-1">
           <li className="nav-item dropdown">
-            {authHeader !== "" ? (
+            {authHeader !== "" && getRole() !== "TRAINER" ? (
               <a className="nav-link navOption" href="/trainer-reservation">
                 Personal reservation
               </a>
@@ -71,7 +71,7 @@ const NavbarCom = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item dropdown">
               <button
-                style={{marginRight:"4vw"}}
+                style={{ marginRight: "4vw" }}
                 className="nav-link dropdown-toggle bg-dark"
                 id="navbarDropdownMenuLink"
                 data-toggle="dropdown"
