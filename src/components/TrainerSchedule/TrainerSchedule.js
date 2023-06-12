@@ -164,6 +164,7 @@ const TrainerSchedule = () => {
                     }
                 })
                 .catch(function (error) {
+					alert("Working ours must be withing hours of gym.")
                     console.log(error);
                 });
     };
